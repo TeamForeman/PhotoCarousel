@@ -1,5 +1,7 @@
 // write my data creator here
 
+// will need to work on arrays today
+
 const faker = require('faker');
 
 // =========== need arrays that will hold all the fake data to generate============
