@@ -12,7 +12,7 @@ const db = mongoose.connection;
 
 
 const listingsSchema = new mongoose.Schema({
-  id: Number, //dont need this
+  // id: Number, //dont need this
   sharedId: Number,
   name: String,
   rating: Number,
@@ -24,21 +24,21 @@ const listingsSchema = new mongoose.Schema({
       url: String
     }
   ],
-  saved: Boolean // this is per user not per listing
+  // saved: Boolean // this is per user not per listing
 });
 
 
 // favorites list -- may not need a user schema at all
-const usersSchema = new mongoose.Schema({
-  id: Number,
-  sharedId: Number,
-  savedListings: [
-    {
-      name: String,
-      listings: [ Number ]
-    }
-  ]
-});
+// const usersSchema = new mongoose.Schema({
+//   id: Number,
+//   sharedId: Number,
+//   savedListings: [
+//     {
+//       name: String,
+//       listings: [ Number ]
+//     }
+//   ]
+// });
 
 // });
 
@@ -46,24 +46,24 @@ const usersSchema = new mongoose.Schema({
 let Listing = mongoose.model('Listing', listingsSchema);
 // let User = mongoose.model('User', usersSchema);
 
-
-let saveListing = (listingObj) => {
-  const newListing = new Listing ({
-    id: 100001,
-    sharedId: 1,
-    name: 'Test House',
-    rating: 4,
-    reviews: 1,
-    location: 'Santa Monica, California',
-    photos: [
-      {
-        description: 'Nice home',
-        url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/10%2BCozy%2BCalifornia%2BCabins%2Bon%2BAirbnb%2B-%2B3.jpg'
-      }
-    ],
-    // saved: false
-  });
-};
+// this (unfinished) function would write a single object
+// let saveListing = (listingObj) => {
+//   const newListing = new Listing ({
+//     id: 100001,
+//     sharedId: 1,
+//     name: 'Test House',
+//     rating: 4,
+//     reviews: 1,
+//     location: 'Santa Monica, California',
+//     photos: [
+//       {
+//         description: 'Nice home',
+//         url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/10%2BCozy%2BCalifornia%2BCabins%2Bon%2BAirbnb%2B-%2B3.jpg'
+//       }
+//     ],
+//     // saved: false
+//   });
+// };
 
 // let saveUser = (userObj) => {
 //   const newUser = new User ({
