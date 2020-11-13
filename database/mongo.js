@@ -6,45 +6,45 @@ mongoose.connect(mongoDB, {useNewUrlParser: true});
 
 const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log('connected to the db');
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function () {
+//   console.log('connected to the db');
 
 
-  const listingsSchema = new mongoose.Schema({
-    id: Number, //dont need this
-    sharedId: Number,
-    name: String,
-    rating: Number,
-    reviews: Number,
-    location: String,
-    photos: [
-      {
-        description: String,
-        url: String
-      }
-    ],
-    saved: Boolean // this is per user not per listing
-  });
-
-
-  // favorites list -- may not need a user schema at all
-  const usersSchema = new mongoose.Schema({
-    id: Number,
-    sharedId: Number,
-    savedListings: [
-      {
-        name: String,
-        listings: [ Number ]
-      }
-    ]
-  });
-
+const listingsSchema = new mongoose.Schema({
+  id: Number, //dont need this
+  sharedId: Number,
+  name: String,
+  rating: Number,
+  reviews: Number,
+  location: String,
+  photos: [
+    {
+      description: String,
+      url: String
+    }
+  ],
+  saved: Boolean // this is per user not per listing
 });
 
 
+// favorites list -- may not need a user schema at all
+const usersSchema = new mongoose.Schema({
+  id: Number,
+  sharedId: Number,
+  savedListings: [
+    {
+      name: String,
+      listings: [ Number ]
+    }
+  ]
+});
+
+// });
+
+
 let Listing = mongoose.model('Listing', listingsSchema);
-let User = mongoose.model('User', usersSchema);
+// let User = mongoose.model('User', usersSchema);
 
 
 let saveListing = (listingObj) => {
@@ -61,22 +61,22 @@ let saveListing = (listingObj) => {
         url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/10%2BCozy%2BCalifornia%2BCabins%2Bon%2BAirbnb%2B-%2B3.jpg'
       }
     ],
-    saved: false
+    // saved: false
   });
 };
 
-let saveUser = (userObj) => {
-  const newUser = new User ({
-    id: 200001,
-    sharedId: 1,
-    savedListings: [
-      {
-        name: 'Jerry',
-        listings: [100001]
-      }
-    ]
-  });
-};
+// let saveUser = (userObj) => {
+//   const newUser = new User ({
+//     id: 200001,
+//     sharedId: 1,
+//     savedListings: [
+//       {
+//         name: 'Jerry',
+//         listings: [100001]
+//       }
+//     ]
+//   });
+// };
 
 // let save = (repos, user/* repo TODO */) => { // pass in the data object returned from the request
 //   // TODO: Your code here
