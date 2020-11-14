@@ -1,5 +1,8 @@
 // write my data creator here
+const express = require('express');
+// const mongoose = require('mongoose');
 const faker = require('faker');
+const db = require('./mongo.js');
 
 // random number between two values
 var getRandomNum = (min, max) => {
@@ -9,10 +12,14 @@ var getRandomNum = (min, max) => {
 };
 
 var makeRandomRating = () => {
-  var num = getRandomNum(1, 5);
-  var dec = getRandomNum(1, 10);
-
-  var rating = Number(num + '.' + dec)
+  var num = getRandomNum(3, 6);
+  if (num === 5) {
+    return num;
+  } else {
+    var dec = getRandomNum(1, 10);
+    var rating = Number(num + '.' + dec);
+    return rating;
+  }
 };
 // =========== arrays that will hold dummy data to generate random data objects ============
 
@@ -74,7 +81,7 @@ var listingMaker = (max) => {
       // all of the information matching the schema's framework
       sharedId: x,
       name: names[getRandomNum(0, names.length)],
-      rating: 0,
+      rating: makeRandomRating(),
       reviews: getRandomNum(4, 80), // needs a random number
       location: faker.address.city() + ', ' + faker.address.state() + ', ' + faker.address.country(),
       photos: randomPhotoGrouper(getRandomNum(7, 14))
@@ -88,6 +95,6 @@ var listingMaker = (max) => {
 };
 
 var listings = listingMaker(100);
-//  Listing.insertMany(data) -- will
 
-module.exports = {listings};
+//  Listing.insertMany(data) -- will
+db.saveMany(listings);

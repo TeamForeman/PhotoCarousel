@@ -1,8 +1,10 @@
 // to run a mongo file, from the shell execute "mongo < FILENAME.js"
-var mongoose = require('mongoose');
-var mongoDB = 'mongodb://localhost/photos'; // setting up a photos db?
+const mongoose = require('mongoose');
+const mongoDB = 'mongodb://localhost/photo-carousel'; // setting up a photo-carousel db
 
-mongoose.connect(mongoDB, {useNewUrlParser: true});
+
+
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 
@@ -23,8 +25,7 @@ const listingsSchema = new mongoose.Schema({
       description: String,
       url: String
     }
-  ],
-  // saved: Boolean // this is per user not per listing
+  ]
 });
 
 
@@ -44,8 +45,26 @@ const listingsSchema = new mongoose.Schema({
 
 
 let Listing = mongoose.model('Listing', listingsSchema);
-// let User = mongoose.model('User', usersSchema);
 
+// write a function that will save data to the mongo database
+let saveMany = (data) => {
+  Listing.remove({}, function(err) {
+    console.log('old listing collection removed');
+  });
+
+  Listing.insertMany(data)
+    .then(()=>{
+      console.log('DATA ADDED SUCCESSFULLY');
+      console.log(data);
+    })
+    .catch((error)=>{
+      console.log(error);
+    });
+};
+
+module.exports.saveMany = saveMany;
+
+// let User = mongoose.model('User', usersSchema);
 // this (unfinished) function would write a single object
 // let saveListing = (listingObj) => {
 //   const newListing = new Listing ({
