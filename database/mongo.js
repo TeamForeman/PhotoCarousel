@@ -1,82 +1,101 @@
 // to run a mongo file, from the shell execute "mongo < FILENAME.js"
-var mongoose = require('mongoose');
-var mongoDB = 'mongodb://localhost/photos'; // setting up a photos db?
+const mongoose = require('mongoose');
+const mongoDB = 'mongodb://localhost/photo-carousel'; // setting up a photo-carousel db
 
-mongoose.connect(mongoDB, {useNewUrlParser: true});
+
+
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log('connected to the db');
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function () {
+//   console.log('connected to the db');
 
 
-  const listingsSchema = new mongoose.Schema({
-    id: Number, //dont need this
-    sharedId: Number,
-    name: String,
-    rating: Number,
-    reviews: Number,
-    location: String,
-    photos: [
-      {
-        description: String,
-        url: String
-      }
-    ],
-    saved: Boolean // this is per user not per listing
-  });
-
-
-  // favorites list -- may not need a user schema at all
-  const usersSchema = new mongoose.Schema({
-    id: Number,
-    sharedId: Number,
-    savedListings: [
-      {
-        name: String,
-        listings: [ Number ]
-      }
-    ]
-  });
-
+const listingsSchema = new mongoose.Schema({
+  // id: Number, //dont need this
+  sharedId: Number,
+  name: String,
+  rating: Number,
+  reviews: Number,
+  location: String,
+  photos: [
+    {
+      description: String,
+      url: String
+    }
+  ]
 });
 
 
+// favorites list -- may not need a user schema at all
+// const usersSchema = new mongoose.Schema({
+//   id: Number,
+//   sharedId: Number,
+//   savedListings: [
+//     {
+//       name: String,
+//       listings: [ Number ]
+//     }
+//   ]
+// });
+
+// });
+
+
 let Listing = mongoose.model('Listing', listingsSchema);
-let User = mongoose.model('User', usersSchema);
 
-
-let saveListing = (listingObj) => {
-  const newListing = new Listing ({
-    id: 100001,
-    sharedId: 1,
-    name: 'Test House',
-    rating: 4,
-    reviews: 1,
-    location: 'Santa Monica, California',
-    photos: [
-      {
-        description: 'Nice home',
-        url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/10%2BCozy%2BCalifornia%2BCabins%2Bon%2BAirbnb%2B-%2B3.jpg'
-      }
-    ],
-    saved: false
+// write a function that will save data to the mongo database
+let saveMany = (data) => {
+  Listing.remove({}, function(err) {
+    console.log('old listing collection removed');
   });
+
+  Listing.insertMany(data)
+    .then(()=>{
+      console.log('DATA ADDED SUCCESSFULLY');
+      console.log(data);
+    })
+    .catch((error)=>{
+      console.log(error);
+    });
 };
 
-let saveUser = (userObj) => {
-  const newUser = new User ({
-    id: 200001,
-    sharedId: 1,
-    savedListings: [
-      {
-        name: 'Jerry',
-        listings: [100001]
-      }
-    ]
-  });
-};
+module.exports.saveMany = saveMany;
+
+// let User = mongoose.model('User', usersSchema);
+// this (unfinished) function would write a single object
+// let saveListing = (listingObj) => {
+//   const newListing = new Listing ({
+//     id: 100001,
+//     sharedId: 1,
+//     name: 'Test House',
+//     rating: 4,
+//     reviews: 1,
+//     location: 'Santa Monica, California',
+//     photos: [
+//       {
+//         description: 'Nice home',
+//         url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/10%2BCozy%2BCalifornia%2BCabins%2Bon%2BAirbnb%2B-%2B3.jpg'
+//       }
+//     ],
+//     // saved: false
+//   });
+// };
+
+// let saveUser = (userObj) => {
+//   const newUser = new User ({
+//     id: 200001,
+//     sharedId: 1,
+//     savedListings: [
+//       {
+//         name: 'Jerry',
+//         listings: [100001]
+//       }
+//     ]
+//   });
+// };
 
 // let save = (repos, user/* repo TODO */) => { // pass in the data object returned from the request
 //   // TODO: Your code here
