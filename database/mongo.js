@@ -8,11 +8,6 @@ mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function () {
-//   console.log('connected to the db');
-
-
 const listingsSchema = new mongoose.Schema({
   // id: Number, //dont need this
   sharedId: Number,
@@ -27,22 +22,6 @@ const listingsSchema = new mongoose.Schema({
     }
   ]
 });
-
-
-// favorites list -- may not need a user schema at all
-// const usersSchema = new mongoose.Schema({
-//   id: Number,
-//   sharedId: Number,
-//   savedListings: [
-//     {
-//       name: String,
-//       listings: [ Number ]
-//     }
-//   ]
-// });
-
-// });
-
 
 let Listing = mongoose.model('Listing', listingsSchema);
 
@@ -62,7 +41,34 @@ let saveMany = (data) => {
     });
 };
 
+let returnListing = (id, cb) => {
+  Listing.find({sharedId: id})
+    .then( data => {
+      console.log('THIS IS THE DATA FROM returnListing:', data[0]);
+      cb(data[0]);
+    })
+    .catch( err => {
+      console.log('err found:', err);
+    });
+
+};
+
 module.exports.saveMany = saveMany;
+module.exports.returnListing = returnListing;
+
+// favorites list -- may not need a user schema at all
+// const usersSchema = new mongoose.Schema({
+//   id: Number,
+//   sharedId: Number,
+//   savedListings: [
+//     {
+//       name: String,
+//       listings: [ Number ]
+//     }
+//   ]
+// });
+
+// });
 
 // let User = mongoose.model('User', usersSchema);
 // this (unfinished) function would write a single object
