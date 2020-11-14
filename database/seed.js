@@ -7,10 +7,18 @@ var getRandomNum = (min, max) => {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
 };
+
+var makeRandomRating = () => {
+  var num = getRandomNum(1, 5);
+  var dec = getRandomNum(1, 10);
+
+  var rating = Number(num + '.' + dec)
+};
 // =========== arrays that will hold dummy data to generate random data objects ============
 
 // write an array of listing names
-var names = ['Cabin in the woods', 'Grandma\'s cozy cottage', 'Mountain escape', 'Hut on a hill', 'Forest-side cabin', 'Luxurious time away in the woods', 'Crazy mountain container casa', '"The Burrow"', 'Beautiful Home in Scenic Area', 'Lovely Vacation Home in the Great Outdoors', 'Smokey\'s Sleepy Cave', 'The Lodge', 'Glamping is Happiness Home', 'Secluded Private Wilderness Home', ''];
+var names = ['Cabin in the woods', 'Grandma\'s cozy cottage', 'Mountain escape', 'Hut on a hill', 'Forest-side cabin', 'Luxurious time away in the woods', 'Crazy mountain container casa', '"The Burrow"', 'Beautiful Home in Scenic Area', 'Lovely Vacation Home in the Great Outdoors', 'Smokey\'s Sleepy Cave', 'The Lodge', 'Glamping is Happiness Home', 'Secluded Private Wilderness Home'];
+
 // write an array of photo urls and descriptions
 var photos = [
   { url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/10%2BCozy%2BCalifornia%2BCabins%2Bon%2BAirbnb%2B-%2B3.jpg', description: 'Cozy common space'},
@@ -31,7 +39,7 @@ var photos = [
   { url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/download-2.jpg', description: 'View of the lodge from the lake - boats available' },
   { url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/download-3.jpg', description: 'Working fireplace in living space' },
   { url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/download.jpg', description: 'Quaint cabin tucked away in the woods' },
-  { urlL: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/hudson-valley-airbnb-cabin-8.jpg', description: 'Stocked kitchen with gas range' },
+  { url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/hudson-valley-airbnb-cabin-8.jpg', description: 'Stocked kitchen with gas range' },
   { url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/images-1.jpg', description: 'Relax on the docks' },
   { url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/images.jpg', description: 'Lower level and loft' },
   { url: 'https://beartnt-photos.s3-us-west-1.amazonaws.com/luna-cabin-airbnb-.webp', description: 'Spend the day here with the whole family' },
@@ -56,24 +64,30 @@ var randomPhotoGrouper = (x) => {
 
 
 // need to write function(s) that will build 100 data objects
-const listingMaker = (max) => {
+var listingMaker = (max) => {
   var data = [];
   var x = 1;
 
-  while (x < max) {
-    array.push({
-      // this will push a single data object
+  while (x <= max) {
+    // this will push a single data object
+    data.push({
       // all of the information matching the schema's framework
       sharedId: x,
-      name: "", // needs a function
-      rating: 0, // needs a random number between 0 and 5
-      reviews: 0, // needs a random number
-      location: "", // needs a random location from faker
-      photos: [], // needs a function that will generate a random collection of photos
+      name: names[getRandomNum(0, names.length)],
+      rating: 0,
+      reviews: getRandomNum(4, 80), // needs a random number
+      location: faker.address.city() + ', ' + faker.address.state() + ', ' + faker.address.country(),
+      photos: randomPhotoGrouper(getRandomNum(7, 14))
 
     });
     x++;
   }
 
-  // invoke Listing.insertMany(data) -- will
+  // return data with all of the listings
+  return data;
 };
+
+var listings = listingMaker(100);
+//  Listing.insertMany(data) -- will
+
+module.exports = {listings};
