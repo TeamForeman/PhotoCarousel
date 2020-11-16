@@ -41,11 +41,11 @@ let saveMany = (data) => {
     });
 };
 
-let returnListing = (id, cb) => {
-  Listing.find({sharedId: id})
+let returnListing = (cb) => {
+  Listing.find({})
     .then( data => {
-      console.log('THIS IS THE DATA FROM returnListing:', data[0]);
-      cb(data[0]);
+      console.log('THIS IS THE DATA FROM returnListing:', data);
+      cb(data);
     })
     .catch( err => {
       console.log('err found:', err);

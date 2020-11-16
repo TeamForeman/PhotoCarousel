@@ -19,7 +19,7 @@ app.get('/api/homes/photos', (req, res) => {
   console.log('IN THE GET REQUEST');
 
 
-  db.returnListing(1, (x) => {
+  db.returnListing((x) => {
     var data = x;
     res.send(data);
   });
