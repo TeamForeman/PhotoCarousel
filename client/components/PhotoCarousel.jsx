@@ -2,26 +2,37 @@ import React from 'react';
 
 const PhotoCarousel = (props) => {
   var listings = props.data.data;
-  var firstPhoto;
-  var firstDesc;
+  var mainGrid = [];
 
   const assignVars = (listings) => {
+    var x = 0;
+
     if (listings) {
-      firstPhoto = listings[0].photos[0].url;
-      firstDesc = listings[0].photos[0].description;
-    } else {
-      firstPhoto = 'Image loading...';
-      firstDesc = '...';
+      var listing = listings[0];
+      while (x < 5) {
+        mainGrid.push(listing.photos[x]);
+        x++;
+      }
     }
+
+    console.log(mainGrid);
   };
 
   listings ? assignVars(listings) : assignVars(null);
 
   return (
     <div>
-      <h1>What?</h1>
+      <h1>Photo Grid</h1>
       <div>
-        <img src={firstPhoto}></img>
+        {
+          mainGrid.map(photoObj => {
+            return (
+              <div id={photoObj.id}>
+                <img src={photoObj.url}></img>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   );

@@ -9,7 +9,6 @@ mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 
 const listingsSchema = new mongoose.Schema({
-  // id: Number, //dont need this
   sharedId: Number,
   name: String,
   rating: Number,
@@ -25,7 +24,6 @@ const listingsSchema = new mongoose.Schema({
 
 let Listing = mongoose.model('Listing', listingsSchema);
 
-// write a function that will save data to the mongo database
 let saveMany = (data) => {
   Listing.remove({}, function(err) {
     console.log('old listing collection removed');
