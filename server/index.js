@@ -1,13 +1,11 @@
-// need to import the database
-
 console.log('In the server file');
 
 const express = require('express');
 const app = express();
 const db = require('../database/mongo.js');
-const bluebird = require('bluebird')
+const bluebird = require('bluebird');
 
-const port = 3003; // change the port at some point?
+const port = 3003;
 
 const bodyParser = require('body-parser');
 

@@ -9,6 +9,7 @@ class App extends React.Component {
     this.state = {
       data: []
     };
+    this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
@@ -35,4 +36,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+export default App;
