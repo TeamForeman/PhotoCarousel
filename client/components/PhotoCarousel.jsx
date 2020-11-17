@@ -25,7 +25,7 @@ const PhotoCarousel = (props) => {
       {
         mainGrid.map(photoObj => {
           return (
-            <div id={photoObj.id}>
+            <div id={photoObj.id} onClick={ (e)=> { props.toggleModal(e); } }>
               <img src={photoObj.url}></img>
             </div>
           );
