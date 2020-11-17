@@ -22,18 +22,15 @@ const PhotoCarousel = (props) => {
 
   return (
     <div>
-      <h1>Photo Grid</h1>
-      <div>
-        {
-          mainGrid.map(photoObj => {
-            return (
-              <div id={photoObj.id}>
-                <img src={photoObj.url}></img>
-              </div>
-            );
-          })
-        }
-      </div>
+      {
+        mainGrid.map(photoObj => {
+          return (
+            <div id={photoObj.id}>
+              <img src={photoObj.url}></img>
+            </div>
+          );
+        })
+      }
     </div>
   );
 };
