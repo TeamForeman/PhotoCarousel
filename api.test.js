@@ -19,6 +19,5 @@ test('Server is pulling 100 listings from the database', () => {
     .then( () => {
       expect(data.length).toBe(100);
     });
-
 });
 
