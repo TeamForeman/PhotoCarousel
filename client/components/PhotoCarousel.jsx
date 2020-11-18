@@ -14,8 +14,6 @@ const PhotoCarousel = (props) => {
         x++;
       }
     }
-
-    console.log(mainGrid);
   };
 
   listings ? assignVars(listings) : assignVars(null);
@@ -25,7 +23,7 @@ const PhotoCarousel = (props) => {
       {
         mainGrid.map(photoObj => {
           return (
-            <div id={photoObj.id} onClick={ (e)=> { props.toggleModal(e); } }>
+            <div id={photoObj.id} onClick={ (e)=> { props.toggleModal(e, true); } }>
               <img src={photoObj.url}></img>
             </div>
           );

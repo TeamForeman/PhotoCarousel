@@ -14,13 +14,11 @@ class App extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
   }
 
-  toggleModal (e) {
+  toggleModal (e, state) {
     e.preventDefault();
-    console.log('Attempting to toggle modal');
-    var toggled = !this.state.modal;
 
     this.setState({
-      modal: toggled
+      modal: state
     });
   }
 
@@ -42,7 +40,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>PHOTO CAROUSEL</h1>
-        <Modal show={this.state.modal}/>
+        <Modal show={this.state.modal} toggleModal={this.toggleModal}/>
         <PhotoCarousel toggleModal={this.toggleModal} data={this.state.data}/>
       </div>
     );
