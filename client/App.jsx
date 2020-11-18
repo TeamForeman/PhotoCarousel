@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 import axios from 'axios';
 import PhotoCarousel from './components/PhotoCarousel.jsx';
-import Modal from './components/modal/index.jsx';
+import PhotosModal from './components/modal/index.jsx';
+
+Modal.setAppElement(document.getElementById('app'));
 
 class App extends React.Component {
   constructor (props) {
@@ -32,7 +35,7 @@ class App extends React.Component {
         });
       })
       .catch (err => {
-        console.log('ERROR: ', err);
+        console.log('ERROR');
       });
   }
 
@@ -40,7 +43,11 @@ class App extends React.Component {
     return (
       <div>
         <h1>PHOTO CAROUSEL</h1>
-        <Modal show={this.state.modal} toggleModal={this.toggleModal}/>
+        <Modal isOpen={this.state.modal} >
+          <PhotosModal toggleModal={this.toggleModal}>
+            Modal is open
+          </PhotosModal>
+        </Modal>
         <PhotoCarousel toggleModal={this.toggleModal} data={this.state.data}/>
       </div>
     );

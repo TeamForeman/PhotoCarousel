@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Modal = (props) => {
+const PhotosModal = (props) => {
 
   if (props.show) {
     return (
@@ -15,6 +15,7 @@ const Modal = (props) => {
           </div>
         </div>
         <div>Modal Photos</div>
+        <div> photo description will go here </div>
       </div>
     );
   } else {
@@ -26,4 +27,4 @@ const Modal = (props) => {
 };
 
 
-export default Modal;
+export default PhotosModal;
