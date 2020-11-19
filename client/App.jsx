@@ -12,16 +12,19 @@ class App extends React.Component {
     super (props);
     this.state = {
       data: [],
-      modal: false
+      listing: {},
+      modal: false,
+      modalPhoto: null,
     };
     this.toggleModal = this.toggleModal.bind(this);
   }
 
-  toggleModal (e, state) {
+  toggleModal (e, state, photo) {
     e.preventDefault();
 
     this.setState({
-      modal: state
+      modal: state,
+      modalPhoto: photo || null
     });
   }
 
@@ -30,8 +33,16 @@ class App extends React.Component {
 
     axios.get('/api/homes/photos')
       .then(res => {
+        var photos = res.data[0].photos;
+        var photoId = 1;
+        for (var i = 0; i < photos.length; i ++) {
+          photos[i].photoId = photoId;
+          photoId++;
+        }
+
         this.setState({
-          data: res
+          data: res,
+          listing: res.data[0]
         });
       })
       .catch (err => {
@@ -44,7 +55,7 @@ class App extends React.Component {
       <div>
         <h1>PHOTO CAROUSEL</h1>
         <Modal isOpen={this.state.modal} >
-          <PhotosModal toggleModal={this.toggleModal}>
+          <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto} >
             Modal is open
           </PhotosModal>
         </Modal>

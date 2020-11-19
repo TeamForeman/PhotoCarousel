@@ -22,9 +22,10 @@ const PhotoCarousel = (props) => {
     <div>
       {
         mainGrid.map(photoObj => {
+          console.log(photoObj);
           return (
-            <div id={photoObj.id} onClick={ (e)=> { props.toggleModal(e, true); } }>
-              <img src={photoObj.url}></img>
+            <div id={photoObj.id} onClick={ (e)=> { props.toggleModal(e, true, photoObj); } }>
+              <img id={photoObj.id} src={photoObj.url}></img>
             </div>
           );
         })
