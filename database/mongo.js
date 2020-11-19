@@ -17,7 +17,8 @@ const listingsSchema = new mongoose.Schema({
   photos: [
     {
       description: String,
-      url: String
+      url: String,
+      photoId: Number
     }
   ]
 });

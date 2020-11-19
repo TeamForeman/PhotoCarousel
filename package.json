@@ -31,13 +31,16 @@
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-modal": "^3.11.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
   },
   "devDependencies": {
+    "css-loader": "^5.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "style-loader": "^2.0.0"
   }
 }
