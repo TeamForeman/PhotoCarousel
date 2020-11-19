@@ -1,0 +1,7 @@
+.grid {
+  padding-top: 24px;
+  box-sizing: border-box;
+  display: block;
+  --page-shell-max-content-width: 1280px;
+
+}

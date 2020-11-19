@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import axios from 'axios';
+import styles from './App.css';
 import PhotoCarousel from './components/PhotoCarousel.jsx';
 import PhotosModal from './components/modal/index.jsx';
 
@@ -53,7 +54,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <h1>PHOTO CAROUSEL</h1>
+        <h1 className={styles.header} >PHOTO CAROUSEL</h1>
         <Modal isOpen={this.state.modal} >
           <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto} >
             Modal is open

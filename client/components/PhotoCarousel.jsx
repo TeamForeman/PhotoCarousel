@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './PhotoCarousel.css';
 
 const PhotoCarousel = (props) => {
   var listings = props.data.data;
@@ -19,13 +20,13 @@ const PhotoCarousel = (props) => {
   listings ? assignVars(listings) : assignVars(null);
 
   return (
-    <div>
+    <div className="grid">
       {
         mainGrid.map(photoObj => {
           console.log(photoObj);
           return (
             <div id={photoObj.id} onClick={ (e)=> { props.toggleModal(e, true, photoObj); } }>
-              <img id={photoObj.id} src={photoObj.url}></img>
+              <img className={styles.photo} id={photoObj.id} src={photoObj.url}></img>
             </div>
           );
         })
