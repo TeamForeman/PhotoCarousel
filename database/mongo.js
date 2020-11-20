@@ -40,8 +40,8 @@ let saveMany = (data) => {
     });
 };
 
-let returnListing = (cb) => {
-  Listing.find({})
+let returnListing = (id, cb) => {
+  Listing.find({sharedId: id})
     .then( data => {
       console.log('THIS IS THE DATA FROM returnListing:', data);
       cb(data);

@@ -33,8 +33,12 @@ class App extends React.Component {
   componentDidMount() {
     console.log('mounting component');
 
-    axios.get('/api/homes/photos')
+    var pathArr = window.location.pathname.split('/');
+    var id = pathArr[pathArr.length - 1];
+
+    axios.get(`/api/homes/photos/${id}`)
       .then(res => {
+        console.log(res.data[0]);
         var photos = res.data[0].photos;
         var photoId = 1;
         for (var i = 0; i < photos.length; i ++) {
@@ -46,7 +50,7 @@ class App extends React.Component {
           data: res,
           listing: res.data[0]
         });
-        console.log(this.state.listing)
+        console.log(this.state.listing);
       })
       .catch (err => {
         console.log('ERROR');
