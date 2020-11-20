@@ -5,6 +5,7 @@ import axios from 'axios';
 import styles from './App.css';
 import PhotoCarousel from './components/PhotoCarousel.jsx';
 import PhotosModal from './components/modal/index.jsx';
+import Header from './components/Header.jsx';
 
 Modal.setAppElement(document.getElementById('app'));
 
@@ -45,6 +46,7 @@ class App extends React.Component {
           data: res,
           listing: res.data[0]
         });
+        console.log(this.state.listing)
       })
       .catch (err => {
         console.log('ERROR');
@@ -54,7 +56,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <h1 className={styles.header} >PHOTO CAROUSEL</h1>
+        <Header listing={this.state.listing}/>
         <Modal isOpen={this.state.modal} >
           <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto} >
             Modal is open
