@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './PhotoCarousel.css';
 
+
 const PhotoCarousel = (props) => {
   var listings = props.data.data;
   var mainGrid = [];
@@ -17,20 +18,32 @@ const PhotoCarousel = (props) => {
     }
   };
 
+  const createClass = (x) => {
+    var className = 'photo' + x.photoId;
+    return className;
+  };
+
   listings ? assignVars(listings) : assignVars(null);
 
   return (
-    <div className="grid">
-      {
-        mainGrid.map(photoObj => {
-          console.log(photoObj);
-          return (
-            <div id={photoObj.id} onClick={ (e)=> { props.toggleModal(e, true, photoObj); } }>
-              <img className={styles.photo} id={photoObj.id} src={photoObj.url}></img>
-            </div>
-          );
-        })
-      }
+    <div className={styles.main}>
+      <div className={styles.carousel}>
+        <div className={styles.container}>
+          {
+            mainGrid.map(photoObj => {
+              var className = createClass(photoObj);
+              return (
+                <div className={styles[className]} id={photoObj.id} onClick={ (e)=> { props.toggleModal(e, true, photoObj); } }>
+                  <img className={styles.img} id={photoObj.id} src={photoObj.url}></img>
+                </div>
+              );
+            })
+          }
+          <button className={styles.button} onClick={(e)=> { props.toggleModal(e, true, mainGrid[0]); } }>
+            <div className={styles.text} >Show all photos</div>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

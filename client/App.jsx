@@ -22,7 +22,7 @@ class App extends React.Component {
 
   toggleModal (e, state, photo) {
     e.preventDefault();
-
+    console.log(e);
     this.setState({
       modal: state,
       modalPhoto: photo || null
