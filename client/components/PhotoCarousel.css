@@ -1,18 +1,18 @@
-.main {
+.asmain {
   width: auto;
   padding-top: 24px;
   padding-left: 80px;
   padding-right: 80px;
 }
 
-.carousel {
+.ascarousel {
   width: 1128px;
   margin-left: auto;
   margin-right: auto;
 
 }
 
-.container {
+.ascontainer {
   display: grid;
   grid-template-columns: 50% 25% 25%;
   grid-template-rows: 1fr 1fr;
@@ -20,14 +20,14 @@
 }
 
 
-.photo1 {
+.asphoto1 {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
 }
 
-.photo2 {
+.asphoto2 {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -35,7 +35,7 @@
   padding-left: 8px;
 }
 
-.photo3 {
+.asphoto3 {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
@@ -43,7 +43,7 @@
   padding-left: 8px;
 }
 
-.photo4 {
+.asphoto4 {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -52,7 +52,7 @@
   padding-top: 8px;
 }
 
-.photo5 {
+.asphoto5 {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
@@ -61,26 +61,26 @@
   padding-top: 8px;
 }
 
-.img {
+.asimg {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-.photo1 img {
+.asphoto1 img {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
-.photo3 img {
+.asphoto3 img {
   border-top-right-radius: 12px;
 }
-.photo5 img {
+.asphoto5 img {
   border-bottom-right-radius: 12px;
 }
 
 
 
-.button {
+.asbutton {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
@@ -89,9 +89,8 @@
   margin-right: 24px;
   justify-self: end;
   align-self: end;
-  z-index: 3 !important;
 }
 
-.button text {
+.asbutton text {
   padding: 7px 15px !important;
 }

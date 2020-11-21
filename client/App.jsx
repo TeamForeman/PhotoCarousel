@@ -36,7 +36,7 @@ class App extends React.Component {
     var pathArr = window.location.pathname.split('/');
     var id = pathArr[pathArr.length - 1];
 
-    axios.get(`/api/homes/photos/${id}`)
+    axios.get(`/api/carousel-module/photos/${id}`)
       .then(res => {
         console.log(res.data[0]);
         var photos = res.data[0].photos;
@@ -59,7 +59,7 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className={styles.asmodule}>
         <Header listing={this.state.listing}/>
         <Modal isOpen={this.state.modal} >
           <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto} >

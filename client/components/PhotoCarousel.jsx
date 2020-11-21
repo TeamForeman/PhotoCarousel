@@ -19,28 +19,28 @@ const PhotoCarousel = (props) => {
   };
 
   const createClass = (x) => {
-    var className = 'photo' + x.photoId;
+    var className = 'asphoto' + x.photoId;
     return className;
   };
 
   listings ? assignVars(listings) : assignVars(null);
 
   return (
-    <div className={styles.main}>
-      <div className={styles.carousel}>
-        <div className={styles.container}>
+    <div className={styles.asmain}>
+      <div className={styles.ascarousel}>
+        <div className={styles.ascontainer}>
           {
             mainGrid.map(photoObj => {
               var className = createClass(photoObj);
               return (
                 <div className={styles[className]} id={photoObj.id} onClick={ (e)=> { props.toggleModal(e, true, photoObj); } }>
-                  <img className={styles.img} id={photoObj.id} src={photoObj.url}></img>
+                  <img className={styles.asimg} id={photoObj.id} src={photoObj.url}></img>
                 </div>
               );
             })
           }
-          <button className={styles.button} onClick={(e)=> { props.toggleModal(e, true, mainGrid[0]); } }>
-            <div className={styles.text} >Show all photos</div>
+          <button className={styles.asbutton} onClick={(e)=> { props.toggleModal(e, true, mainGrid[0]); } }>
+            <div className={styles.astext} >Show all photos</div>
           </button>
         </div>
       </div>

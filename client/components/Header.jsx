@@ -3,20 +3,24 @@ import styles from './Header.css';
 
 const Header = (props) => {
   return (
-    <div>
-      <div className={styles.topbar}>
-        <h1 className={styles.header} >{props.listing.name}</h1>
-      </div>
-      <div className={styles.bybar}>
-        <div>
-          <div className={styles.star}>STAR</div>
-          <div className={styles.rating}>{props.listing.rating}</div>
-          <div className={'(' + styles.reviews + ')'}>{props.listing.reviews}</div>
-          <div className={styles.location}>{props.listing.location}</div>
+    <div className={styles.asbar}>
+      <div className={styles.asheader}>
+        <div className={styles.astopbar}>
+          <h1 className={styles.aslistingName} >{props.listing.name}</h1>
         </div>
-        <div>
-          <div className={styles.share}>share</div>
-          <div className={styles.save}>save</div>
+        <div className={styles.asbybar}>
+          <div className={styles.asbygrid}>
+            <div className={styles.asleft}>
+              <div className={styles.asstar}>STAR</div>
+              <div className={styles.asrating}>{props.listing.rating}</div>
+              <div className={styles.asreviews}>{'(' + props.listing.reviews + ')'}</div>
+              <div className={styles.aslocation}>{props.listing.location}</div>
+            </div>
+          </div>
+          <div className={styles.asright}>
+            <div className={styles.asshare}>share</div>
+            <div className={styles.assave}>save</div>
+          </div>
         </div>
       </div>
     </div>
