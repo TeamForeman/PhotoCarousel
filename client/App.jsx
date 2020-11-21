@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import axios from 'axios';
+import styles from './App.css';
 import PhotoCarousel from './components/PhotoCarousel.jsx';
 import PhotosModal from './components/modal/index.jsx';
+import Header from './components/Header.jsx';
 
 Modal.setAppElement(document.getElementById('app'));
 
@@ -21,7 +23,7 @@ class App extends React.Component {
 
   toggleModal (e, state, photo) {
     e.preventDefault();
-
+    console.log(e);
     this.setState({
       modal: state,
       modalPhoto: photo || null
@@ -31,8 +33,12 @@ class App extends React.Component {
   componentDidMount() {
     console.log('mounting component');
 
-    axios.get('/api/homes/photos')
+    var pathArr = window.location.pathname.split('/');
+    var id = pathArr[pathArr.length - 1];
+
+    axios.get(`/api/carousel-module/photos/${id}`)
       .then(res => {
+        console.log(res.data[0]);
         var photos = res.data[0].photos;
         var photoId = 1;
         for (var i = 0; i < photos.length; i ++) {
@@ -44,6 +50,7 @@ class App extends React.Component {
           data: res,
           listing: res.data[0]
         });
+        console.log(this.state.listing);
       })
       .catch (err => {
         console.log('ERROR');
@@ -52,8 +59,8 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>PHOTO CAROUSEL</h1>
+      <div className={styles.asmodule}>
+        <Header listing={this.state.listing}/>
         <Modal isOpen={this.state.modal} >
           <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto} >
             Modal is open

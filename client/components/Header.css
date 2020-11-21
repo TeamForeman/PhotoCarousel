@@ -1,0 +1,48 @@
+.asbar {
+width: auto;
+padding-top: 24px;
+padding-left: 80px;
+padding-right: 80px;
+}
+
+
+.asheader {
+  width: 1128px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.astopbar .asbybar {
+  width: 1128px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.asbybar {
+  -webkit-box-align: baseline !important;
+  align-items: baseline !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin-top: 4px !important;
+}
+
+.asbygrid {
+  display: grid;
+  grid-template-columns: 1fr, 1fr;
+}
+
+.asleft {
+  float: left;
+}
+
+.asstar .rating .reviews .location {
+  float: right;
+}
+
+.asright {
+  float: right;
+}
+
+.asshare .save {
+  float: inherit;
+}

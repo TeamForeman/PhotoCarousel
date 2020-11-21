@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const db = require('../database/mongo.js');
 const bluebird = require('bluebird');
+const path = require('path');
 
 const port = 3003;
 
@@ -13,18 +14,25 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 
-app.get('/api/homes/photos', (req, res) => {
+
+app.get('/carousel-module/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+app.get('/api/carousel-module/photos/:id', (req, res) => {
   console.log('IN THE GET REQUEST');
 
+  var id = req.params.id;
 
-  db.returnListing((x) => {
+  db.returnListing(id, (x) => {
+
     var data = x;
     res.send(data);
   });
 
 });
 
-app.put('/api/homes/photos', (req, res) => {
+app.put('/api/carousel-module/photos', (req, res) => {
   console.log('IN THE PUT REQ');
   res.send('Got a PUT request');
 });

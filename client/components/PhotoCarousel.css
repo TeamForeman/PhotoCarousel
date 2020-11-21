@@ -1,0 +1,96 @@
+.asmain {
+  width: auto;
+  padding-top: 24px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.ascarousel {
+  width: 1128px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.ascontainer {
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+  grid-template-rows: 1fr 1fr;
+  align-items: stretch;
+}
+
+
+.asphoto1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.asphoto2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  padding-left: 8px;
+}
+
+.asphoto3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  padding-left: 8px;
+}
+
+.asphoto4 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding-left: 8px;
+  padding-top: 8px;
+}
+
+.asphoto5 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding-left: 8px;
+  padding-top: 8px;
+}
+
+.asimg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.asphoto1 img {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.asphoto3 img {
+  border-top-right-radius: 12px;
+}
+.asphoto5 img {
+  border-bottom-right-radius: 12px;
+}
+
+
+
+.asbutton {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin-bottom: 24px;
+  margin-right: 24px;
+  justify-self: end;
+  align-self: end;
+}
+
+.asbutton text {
+  padding: 7px 15px !important;
+}

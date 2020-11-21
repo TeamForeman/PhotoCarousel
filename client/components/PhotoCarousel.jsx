@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from './PhotoCarousel.css';
+
 
 const PhotoCarousel = (props) => {
   var listings = props.data.data;
@@ -16,20 +18,32 @@ const PhotoCarousel = (props) => {
     }
   };
 
+  const createClass = (x) => {
+    var className = 'asphoto' + x.photoId;
+    return className;
+  };
+
   listings ? assignVars(listings) : assignVars(null);
 
   return (
-    <div>
-      {
-        mainGrid.map(photoObj => {
-          console.log(photoObj);
-          return (
-            <div id={photoObj.id} onClick={ (e)=> { props.toggleModal(e, true, photoObj); } }>
-              <img id={photoObj.id} src={photoObj.url}></img>
-            </div>
-          );
-        })
-      }
+    <div className={styles.asmain}>
+      <div className={styles.ascarousel}>
+        <div className={styles.ascontainer}>
+          {
+            mainGrid.map(photoObj => {
+              var className = createClass(photoObj);
+              return (
+                <div className={styles[className]} id={photoObj.id} onClick={ (e)=> { props.toggleModal(e, true, photoObj); } }>
+                  <img className={styles.asimg} id={photoObj.id} src={photoObj.url}></img>
+                </div>
+              );
+            })
+          }
+          <button className={styles.asbutton} onClick={(e)=> { props.toggleModal(e, true, mainGrid[0]); } }>
+            <div className={styles.astext} >Show all photos</div>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
