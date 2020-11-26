@@ -1,7 +1,6 @@
 .asmodule {
-  width: 100vw;
+  max-width: 1128px;
+  margin: 0px auto;
   font-family: 'Roboto', 'sans-serif', serif;
-
-
   border: 2px solid blue;
 }
