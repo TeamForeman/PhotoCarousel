@@ -17,8 +17,11 @@ class App extends React.Component {
       listing: {},
       modal: false,
       modalPhoto: null,
+      windowWidth: window.innerWidth
     };
+
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   toggleModal (e, state, photo) {
@@ -30,8 +33,20 @@ class App extends React.Component {
     });
   }
 
+  handleResize (e) {
+    console.log('handling resize...');
+    this.setState({ windowWidth: window.innerWidth });
+    console.log(this.state.windowWidth);
+  }
+
+  componentWillUnMount() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
   componentDidMount() {
     console.log('mounting component');
+
+    window.addEventListener( 'resize', this.handleResize);
 
     var pathArr = window.location.pathname.split('/');
     var id = pathArr[pathArr.length - 1];
@@ -57,18 +72,27 @@ class App extends React.Component {
       });
   }
 
+
+
   render () {
-    return (
-      <div className={styles.asmodule}>
-        <Header listing={this.state.listing}/>
-        <Modal isOpen={this.state.modal} >
-          <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto} >
-            Modal is open
-          </PhotosModal>
-        </Modal>
-        <PhotoCarousel toggleModal={this.toggleModal} data={this.state.data}/>
-      </div>
-    );
+
+    if (this.state.windowWidth > 743) {
+      return (
+        <div className={styles.asmodule}>
+          <Header listing={this.state.listing}/>
+          <Modal isOpen={this.state.modal} >
+            <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto} >
+              Modal is open
+            </PhotosModal>
+          </Modal>
+          <PhotoCarousel toggleModal={this.toggleModal} data={this.state.data}/>
+        </div>
+      );
+    } else {
+      return (
+        <div> Building component </div>
+      );
+    }
   }
 }
 

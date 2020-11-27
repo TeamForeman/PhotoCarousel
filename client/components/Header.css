@@ -16,6 +16,12 @@ border: 2px dashed silver;
   border: 2px solid green;
 }
 
+.aslistingName {
+  font-size: 36px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
 .asbybar {
   -webkit-box-align: baseline !important;
   align-items: baseline !important;
