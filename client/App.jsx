@@ -6,6 +6,7 @@ import styles from './App.css';
 import PhotoCarousel from './components/PhotoCarousel.jsx';
 import PhotosModal from './components/modal/index.jsx';
 import Header from './components/Header.jsx';
+import MainPhoto from './minComponents/MainPhoto.jsx';
 
 Modal.setAppElement(document.getElementById('app'));
 
@@ -75,8 +76,11 @@ class App extends React.Component {
 
 
   render () {
-
-    if (this.state.windowWidth > 743) {
+    if (this.state.data.length === 0) {
+      return (
+        <div>Rendering Components....</div>
+      );
+    } else if (this.state.windowWidth > 743) {
       return (
         <div className={styles.asmodule}>
           <Header listing={this.state.listing}/>
@@ -88,9 +92,14 @@ class App extends React.Component {
           <PhotoCarousel toggleModal={this.toggleModal} data={this.state.data}/>
         </div>
       );
-    } else {
+    } else if (this.state.windowWidth <= 743) {
       return (
-        <div> Building component </div>
+        console.log('In min state', this.state.data),
+        <div>
+          <div>Building component</div>
+          <MainPhoto data={this.state.data}/>
+          <Header listing={this.state.listing}/>
+        </div>
       );
     }
   }
