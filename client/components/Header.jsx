@@ -15,7 +15,9 @@ const Header = (props) => {
           </div>
 
           <div className={styles.asreviews}>
-            <div className={styles.asrating}>{props.listing.rating}</div>
+            <div className={styles.asrating}>
+              {props.listing.rating = 5 ? '5.0' : props.listing.rating}
+            </div>
             <div className={styles.asrevtotal}>{'(' + props.listing.reviews + ')'}</div>
           </div>
 
