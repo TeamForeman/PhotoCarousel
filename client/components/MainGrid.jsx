@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './css/PhotoCarousel.css';
+import styles from './css/MainGrid.css';
 
 
-const PhotoCarousel = (props) => {
+const MainGrid = (props) => {
   var listings = props.data.data;
   var mainGrid = [];
 
@@ -48,4 +48,4 @@ const PhotoCarousel = (props) => {
   );
 };
 
-export default PhotoCarousel;
+export default MainGrid;

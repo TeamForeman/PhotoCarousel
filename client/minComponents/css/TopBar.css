@@ -23,8 +23,17 @@
   grid-area: "arrow";
 }
 
+.asarrow:hover {
+  cursor: pointer;
+}
+
 .astext {
   grid-area: "text";
+  justify-self: start;
+}
+
+.astext:hover {
+  cursor: pointer;
 }
 
 .asbuttons {
@@ -57,6 +66,10 @@
   overflow: visible;
 }
 
+.asarrowIcon:hover {
+  cursor: pointer;
+}
+
 .asheartIcon {
   display: block;
   fill: none;
@@ -65,6 +78,10 @@
   stroke: currentcolor;
   stroke-width: 2;
   overflow: visible;
+}
+
+.asheartIcon:hover {
+  cursor: pointer;
 }
 
 .asbackIcon {
@@ -76,3 +93,4 @@
   stroke-width: 4;
   overflow: visible;
 }
+

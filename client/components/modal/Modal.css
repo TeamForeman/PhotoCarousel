@@ -8,6 +8,10 @@
   overflow: visible;
 }
 
+.asarrowIcon:hover {
+  cursor: pointer;
+}
+
 .asheartIcon {
   display: block;
   fill: none;
@@ -18,3 +22,6 @@
   overflow: visible;
 }
 
+.asheartIcon:hover {
+  cursor: pointer;
+}

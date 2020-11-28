@@ -14,9 +14,9 @@
     /* border: 2px solid gold; */
   }
 
-  .astopbar {
-    /* border: 2px solid green; */
-  }
+  /* .astopbar {
+    border: 2px solid green;
+  } */
 
   .aslistingName {
     font-size: 28px;
@@ -48,6 +48,10 @@
     column-gap: 2px;
   }
 
+  .asreviews:hover {
+    cursor: pointer;
+  }
+
   .asspacer {
     grid-area: "dot";
     justify-self: center;
@@ -58,6 +62,10 @@
     justify-self: left;
     opacity: 70%;
     text-decoration: underline;
+  }
+
+  .aslocation:hover {
+    cursor: pointer;
   }
 
   /* ICONS */

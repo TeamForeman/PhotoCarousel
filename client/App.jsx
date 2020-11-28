@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import axios from 'axios';
 import styles from './App.css';
-import PhotoCarousel from './components/PhotoCarousel.jsx';
-import PhotosModal from './components/modal/index.jsx';
+import MainGrid from './components/MainGrid.jsx';
+import PhotosModal from './components/modal/PhotosModal.jsx';
 import Header from './components/Header.jsx';
 import MainPhoto from './minComponents/MainPhoto.jsx';
 import Description from './minComponents/Description.jsx';
@@ -91,7 +91,7 @@ class App extends React.Component {
               Modal is open
             </PhotosModal>
           </Modal>
-          <PhotoCarousel toggleModal={this.toggleModal} data={this.state.data}/>
+          <MainGrid toggleModal={this.toggleModal} data={this.state.data}/>
         </div>
       );
     } else if (this.state.windowWidth <= 743) {

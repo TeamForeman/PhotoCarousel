@@ -17,6 +17,10 @@
   object-fit: cover;
 }
 
+.asphoto:hover {
+  cursor: pointer;
+}
+
 .asoverlay {
   font-size: 12px !important;
   line-height: 16px !important;
