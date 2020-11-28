@@ -1,0 +1,49 @@
+.asbar {
+  max-width: 100%;
+  padding-top: 24px;
+
+  border: 2px dashed silver;
+  }
+
+  .asheader {
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 2px solid gold;
+  }
+
+  .astopbar {
+    border: 2px solid green;
+  }
+
+  .aslistingName {
+    font-size: 36px;
+    line-height: 30px;
+    font-weight: 600;
+  }
+
+  .asbybar {
+    -webkit-box-align: baseline !important;
+    align-items: baseline !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-top: 4px !important;
+    border: 2px solid green;
+  }
+
+  .asbygrid {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+  }
+
+  .asleft {
+    float: left;
+  }
+
+  .asstar .rating .reviews .location {
+    float: right;
+  }
+
+  .asright {
+    float: right;
+  }

@@ -7,6 +7,8 @@ import PhotoCarousel from './components/PhotoCarousel.jsx';
 import PhotosModal from './components/modal/index.jsx';
 import Header from './components/Header.jsx';
 import MainPhoto from './minComponents/MainPhoto.jsx';
+import Description from './minComponents/Description.jsx';
+import TopBar from './minComponents/TopBar.jsx';
 
 Modal.setAppElement(document.getElementById('app'));
 
@@ -96,9 +98,9 @@ class App extends React.Component {
       return (
         console.log('In min state', this.state.data),
         <div>
-          <div>Building component</div>
+          <TopBar listing={this.state.listing}/>
           <MainPhoto data={this.state.data}/>
-          <Header listing={this.state.listing}/>
+          <Description listing={this.state.listing}/>
         </div>
       );
     }
