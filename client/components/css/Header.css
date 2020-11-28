@@ -57,6 +57,7 @@ border: 2px dashed silver;
   grid-area: "loc";
   justify-self: left;
   opacity: 70%;
+  text-decoration: underline;
 }
 
 .asbuttons {
@@ -76,6 +77,7 @@ border: 2px dashed silver;
 
 .asshare text {
   grid-area: "share";
+  text-decoration: underline;
 }
 
 .assave {
@@ -88,6 +90,7 @@ border: 2px dashed silver;
 
 .assave text {
   grid-area: "save";
+  text-decoration: underline;
 }
 
 .asrating {

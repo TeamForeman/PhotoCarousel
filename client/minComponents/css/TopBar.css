@@ -9,7 +9,7 @@
   grid-template-columns: auto 68px;
   grid-template-areas: "back" "buttons";
 
-  border: 2px dashed silver;
+  /* border: 2px dashed silver; */
 }
 
 .asreturnHome {

@@ -1,19 +1,21 @@
 .asbar {
   max-width: 100%;
-  padding-top: 24px;
+  padding-top: 32px;
+  padding-bottom: 24px;
 
-  border: 2px dashed silver;
+  border-bottom: 1px solid rgba(89, 89, 89, 0.35);
   }
 
   .asheader {
     margin-left: auto;
     margin-right: auto;
-
-    border: 2px solid gold;
+    padding-left: 24px;
+    padding-right: 24px;
+    /* border: 2px solid gold; */
   }
 
   .astopbar {
-    border: 2px solid green;
+    /* border: 2px solid green; */
   }
 
   .aslistingName {
@@ -31,7 +33,7 @@
     font-size: 13px !important;
     line-height: 20px !important;
 
-    border: 2px solid green;
+    /* border: 2px solid green; */
   }
 
   .asstar {
@@ -55,6 +57,7 @@
     grid-area: "loc";
     justify-self: left;
     opacity: 70%;
+    text-decoration: underline;
   }
 
   /* ICONS */

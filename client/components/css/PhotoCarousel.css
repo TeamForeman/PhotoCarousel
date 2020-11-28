@@ -61,6 +61,11 @@
   height: 100%;
 }
 
+.asimg:hover {
+  opacity: 70%;
+  transition: all 1s ease;
+}
+
 .asphoto1 img {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
