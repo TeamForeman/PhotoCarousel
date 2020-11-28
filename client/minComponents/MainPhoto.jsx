@@ -15,11 +15,16 @@ class MainPhoto extends React.Component {
   }
 
   render () {
-    var photoURL = this.state.currentPhoto;
+    var photo = this.state.currentPhoto;
 
     return (
-      <div className={styles.photoContainer}>
-        <img src={photoURL.url}></img>
+      <div className={styles.ascontainer}>
+        <div className={styles.asphoto}>
+          <img src={photo.url}></img>
+          <div className={styles.asoverlay}>
+            <text>{ (photo.photoId) + '/' + this.state.photos.length}</text>
+          </div>
+        </div>
       </div>
     );
   }
