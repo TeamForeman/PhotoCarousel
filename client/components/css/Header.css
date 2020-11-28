@@ -20,6 +20,7 @@ border: 2px dashed silver;
   font-size: 28px;
   font-weight: 500;
   line-height: 30px;
+  margin: 0;
 }
 
 .asbybar {
@@ -28,7 +29,7 @@ border: 2px dashed silver;
   display: grid;
   grid-template-columns: 18px 50px 20px auto 136px;
   grid-template-areas: "star" "reviews" "dot" "loc" "buttons";
-  margin-top: 4px !important;
+  margin-top: 12px !important;
   font-weight: 300 !important;
   font-size: 13px !important;
   line-height: 20px !important;
