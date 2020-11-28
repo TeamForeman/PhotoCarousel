@@ -17,33 +17,43 @@
   }
 
   .aslistingName {
-    font-size: 36px;
+    font-size: 28px;
+    font-weight: 500;
     line-height: 30px;
-    font-weight: 600;
   }
 
   .asbybar {
-    -webkit-box-align: baseline !important;
-    align-items: baseline !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
+    display: grid;
+    grid-template-columns: 18px 50px 20px auto;
+    grid-template-areas: "star" "reviews" "dot" "loc";
     margin-top: 4px !important;
+    font-weight: 300 !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+
     border: 2px solid green;
   }
 
-  .asbygrid {
+  .asstar {
+    grid-area: "star";
+    color: palevioletred;
+  }
+
+  .asreviews {
+    grid-area: "reviews";
     display: grid;
-    grid-template-columns: 1fr, 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "rating" "total";
+    column-gap: 2px;
   }
 
-  .asleft {
-    float: left;
+  .asspacer {
+    grid-area: "dot";
+    justify-self: center;
   }
 
-  .asstar .rating .reviews .location {
-    float: right;
-  }
-
-  .asright {
-    float: right;
+  .aslocation {
+    grid-area: "loc";
+    justify-self: left;
+    opacity: 70%;
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './PhotoCarousel.css';
+import styles from './css/PhotoCarousel.css';
 
 
 const PhotoCarousel = (props) => {

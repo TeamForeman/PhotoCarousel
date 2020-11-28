@@ -18,7 +18,7 @@ class MainPhoto extends React.Component {
     var photoURL = this.state.currentPhoto;
 
     return (
-      <div>
+      <div className={styles.photoContainer}>
         <img src={photoURL.url}></img>
       </div>
     );

@@ -97,7 +97,7 @@ class App extends React.Component {
     } else if (this.state.windowWidth <= 743) {
       return (
         console.log('In min state', this.state.data),
-        <div>
+        <div className={styles.asmodule}>
           <TopBar listing={this.state.listing}/>
           <MainPhoto data={this.state.data}/>
           <Description listing={this.state.listing}/>

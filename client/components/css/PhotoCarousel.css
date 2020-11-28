@@ -5,13 +5,13 @@
 
 .ascarousel {
   border: 2px solid gold;
+  max-height: 497px;
 }
 
 .ascontainer {
   display: grid;
   grid-template-columns: 50% 25% 25%;
   grid-template-rows: 1fr 1fr;
-  align-items: stretch;
 }
 
 .asphoto1 {
@@ -56,9 +56,9 @@
 }
 
 .asimg {
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .asphoto1 img {

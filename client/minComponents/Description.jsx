@@ -9,14 +9,18 @@ const Description = (props) => {
           <h1 className={styles.aslistingName} >{props.listing.name}</h1>
         </div>
         <div className={styles.asbybar}>
-          <div className={styles.asbygrid}>
-            <div className={styles.asleft}>
-              <div className={styles.asstar}>STAR</div>
-              <div className={styles.asrating}>{props.listing.rating}</div>
-              <div className={styles.asreviews}>{'(' + props.listing.reviews + ')'}</div>
-              <div className={styles.aslocation}>{props.listing.location}</div>
-            </div>
+
+          <div className={styles.asstar}>S</div>
+
+          <div className={styles.asreviews}>
+            <div className={styles.asrating}>{props.listing.rating}</div>
+            <div className={styles.asrevtotal}>{'(' + props.listing.reviews + ')'}</div>
           </div>
+
+          <div className={styles.asspacer}>·</div>
+
+          <div className={styles.aslocation}>{props.listing.location}</div>
+
         </div>
       </div>
     </div>

@@ -1,0 +1,78 @@
+.asBar {
+  max-width: 100%;
+  padding-top: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  display: grid;
+  grid-template-columns: auto 68px;
+  grid-template-areas: "back" "buttons";
+
+  border: 2px dashed silver;
+}
+
+.asreturnHome {
+  grid-area: "back";
+  display: grid;
+  grid-template-columns: 24px auto;
+  grid-template-areas: "arrow" "text";
+}
+
+.asarrow {
+  grid-area: "arrow";
+}
+
+.astext {
+  grid-area: "text";
+}
+
+.asbuttons {
+  grid-area: "buttons";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "share" "save";
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.asshare {
+  grid-area: "share";
+  justify-self: start;
+}
+
+.assave {
+  grid-area: "save";
+  justify-self: end;
+}
+
+/* ICONS */
+.asarrowIcon {
+  display: block;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 2;
+  overflow: visible;
+}
+
+.asheartIcon {
+  display: block;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 2;
+  overflow: visible;
+}
+
+.asbackIcon {
+  display: block;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 4;
+  overflow: visible;
+}

@@ -1,0 +1,127 @@
+.asbar {
+max-width: 100%;
+padding-top: 24px;
+
+border: 2px dashed silver;
+}
+
+.asheader {
+  margin-left: auto;
+  margin-right: auto;
+
+  border: 2px solid gold;
+}
+
+.astopbar {
+  border: 2px solid green;
+}
+
+.aslistingName {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.asbybar {
+  /* -webkit-box-align: baseline !important;
+  align-items: baseline !important; */
+  display: grid;
+  grid-template-columns: 18px 50px 20px auto 136px;
+  grid-template-areas: "star" "reviews" "dot" "loc" "buttons";
+  margin-top: 4px !important;
+  font-weight: 300 !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+
+  border: 2px solid green;
+}
+
+.asstar {
+  grid-area: "star";
+  color: palevioletred;
+}
+
+.asreviews {
+  grid-area: "reviews";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "rating" "total";
+  column-gap: 2px;
+}
+
+.asspacer {
+  grid-area: "dot";
+  justify-self: center;
+}
+
+.aslocation {
+  grid-area: "loc";
+  justify-self: left;
+  opacity: 70%;
+}
+
+.asbuttons {
+  grid-area: "buttons";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "share" "save";
+}
+
+.asshare {
+  grid-area: "share";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "arrow" "share";
+  justify-self: start;
+}
+
+.asshare text {
+  grid-area: "share";
+}
+
+.assave {
+  grid-area: "save";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "heart" "save";
+  justify-self: end;
+}
+
+.assave text {
+  grid-area: "save";
+}
+
+.asrating {
+  font-weight: 500;
+  grid-area: "rating";
+}
+
+.asrevtotal {
+  opacity: 70%;
+  grid-area: "revtotal"
+}
+
+/* ICONS */
+.asarrowIcon {
+  grid-area: "arrow";
+  display: block;
+  justify-self: center;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 2;
+  overflow: visible;
+}
+
+.asheartIcon {
+  grid-area: "heart";
+  display: block;
+  justify-self: center;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 2;
+  overflow: visible;
+}
