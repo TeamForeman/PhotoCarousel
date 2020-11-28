@@ -36,7 +36,6 @@
 
   .asstar {
     grid-area: "star";
-    color: palevioletred;
   }
 
   .asreviews {
@@ -56,4 +55,14 @@
     grid-area: "loc";
     justify-self: left;
     opacity: 70%;
+  }
+
+  /* ICONS */
+  .asstarIcon {
+    fill: rgb(255, 56, 92);
+    height: 14px;
+    width: 14px;
+    stroke: currentcolor;
+    stroke-width: 2;
+    overflow: visible;
   }
