@@ -62,7 +62,7 @@
 }
 
 .asimg:hover {
-  opacity: 70%;
+  -webkit-filter: brightness(70%);
   transition: all 1s ease;
 }
 
