@@ -33,11 +33,6 @@
 .ascloseModal:hover {
   cursor: pointer;
   background-color: #00000027;
-  /* -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 1s ease; */
 }
 
 .asphotoOfTotal {
@@ -73,6 +68,45 @@
   grid-area: "save";
   justify-self: center;
   align-self: center;
+}
+
+/* Top Bar ICONS */
+.asarrowIcon {
+  padding: 8px;
+  display: block;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 2;
+  overflow: visible;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.asarrowIcon:hover {
+  cursor: pointer;
+  background: #00000013;
+  border-radius: 50%;
+}
+
+.asheartIcon {
+  padding: 8px;
+  display: block;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 2;
+  overflow: visible;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.asheartIcon:hover {
+  cursor: pointer;
+  background: #00000013;
+  border-radius: 50%;
 }
 
 /* SLIDESHOW AREA */
@@ -126,45 +160,6 @@
 
 .asdescription {
   justify-self: center;
-}
-
-/* ICONS */
-.asarrowIcon {
-  padding: 8px;
-  display: block;
-  fill: none;
-  height: 16px;
-  width: 16px;
-  stroke: currentcolor;
-  stroke-width: 2;
-  overflow: visible;
-  grid-column-start: 1;
-  grid-column-end: 2;
-}
-
-.asarrowIcon:hover {
-  cursor: pointer;
-  background: #00000013;
-  border-radius: 50%;
-}
-
-.asheartIcon {
-  padding: 8px;
-  display: block;
-  fill: none;
-  height: 16px;
-  width: 16px;
-  stroke: currentcolor;
-  stroke-width: 2;
-  overflow: visible;
-  grid-column-start: 2;
-  grid-column-end: 3;
-}
-
-.asheartIcon:hover {
-  cursor: pointer;
-  background: #00000013;
-  border-radius: 50%;
 }
 
 .asmoveIcon {
