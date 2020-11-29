@@ -1,0 +1,79 @@
+.asbar {
+  max-width: 100%;
+  padding-top: 32px;
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid rgba(89, 89, 89, 0.35);
+  }
+
+  .asheader {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    /* border: 2px solid gold; */
+  }
+
+  /* .astopbar {
+    border: 2px solid green;
+  } */
+
+  .aslistingName {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 30px;
+  }
+
+  .asbybar {
+    display: grid;
+    grid-template-columns: 18px 50px 20px auto;
+    grid-template-areas: "star" "reviews" "dot" "loc";
+    margin-top: 4px !important;
+    font-weight: 300 !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+
+    /* border: 2px solid green; */
+  }
+
+  .asstar {
+    grid-area: "star";
+  }
+
+  .asreviews {
+    grid-area: "reviews";
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "rating" "total";
+    column-gap: 2px;
+  }
+
+  .asreviews:hover {
+    cursor: pointer;
+  }
+
+  .asspacer {
+    grid-area: "dot";
+    justify-self: center;
+  }
+
+  .aslocation {
+    grid-area: "loc";
+    justify-self: left;
+    opacity: 70%;
+    text-decoration: underline;
+  }
+
+  .aslocation:hover {
+    cursor: pointer;
+  }
+
+  /* ICONS */
+  .asstarIcon {
+    fill: rgb(255, 56, 92);
+    height: 14px;
+    width: 14px;
+    stroke: currentcolor;
+    stroke-width: 2;
+    overflow: visible;
+  }

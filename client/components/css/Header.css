@@ -1,0 +1,175 @@
+.asbar {
+max-width: 100%;
+padding-top: 24px;
+
+/* border: 2px dashed silver; */
+}
+
+.asheader {
+  margin-left: auto;
+  margin-right: auto;
+
+  /* border: 2px solid gold; */
+}
+
+/* .astopbar {
+  border: 2px solid green;
+} */
+
+.aslistingName {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 30px;
+  margin: 0;
+}
+
+.asbybar {
+  display: grid;
+  grid-template-columns: 18px 50px 20px auto 150px;
+  grid-template-areas: "star" "reviews" "dot" "loc" "buttons";
+  margin-top: 12px !important;
+  font-weight: 300 !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+
+  /* border: 2px solid green; */
+}
+
+.asstar {
+  grid-area: "star";
+  align-self: center;
+  justify-self: start;
+}
+
+.asreviews {
+  grid-area: "reviews";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "rating" "total";
+  column-gap: 2px;
+}
+
+.asrating {
+  font-weight: 500;
+  grid-area: "rating";
+  align-self: center;
+  justify-self: center;
+}
+
+.asrevtotal {
+  opacity: 70%;
+  grid-area: "revtotal";
+  align-self: center;
+  justify-self: center;
+}
+
+.asreviews:hover {
+  cursor: pointer;
+}
+
+.asspacer {
+  grid-area: "dot";
+  align-self: center;
+  justify-self: center;
+}
+
+.aslocation {
+  grid-area: "loc";
+  align-self: center;
+  opacity: 70%;
+  text-decoration: underline;
+}
+
+.aslocation text:hover {
+  cursor: pointer;
+}
+
+.asbuttons {
+  grid-area: "buttons";
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "share" "save";
+}
+
+.asshare {
+  padding: 4px;
+  grid-area: "share";
+  display: grid;
+  grid-template-columns: 28px 40px;
+  grid-template-areas: "arrow" "share";
+  /* justify-self: start; */
+  align-self: center;
+  justify-self: center;
+}
+
+.asshare text {
+  grid-area: "share";
+  align-self: center;
+  text-decoration: underline;
+}
+
+.asshare:hover {
+  cursor: pointer;
+  background: #00000013;
+  border-radius: 8px;
+}
+
+.assave {
+  padding: 4px;
+  grid-area: "save";
+  display: grid;
+  grid-template-columns: 28px 40px;
+  grid-template-areas: "heart" "save";
+  /* justify-self: end; */
+  align-self: center;
+  justify-self: center;
+}
+
+.assave text {
+  grid-area: "save";
+  align-self: center;
+  text-decoration: underline;
+}
+
+.assave:hover {
+  cursor: pointer;
+  background: #00000013;
+  border-radius: 8px;
+}
+
+/* ICONS */
+.asarrowIcon {
+  grid-area: "arrow";
+  display: block;
+  align-self: center;
+  justify-self: center;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 2;
+  overflow: visible;
+}
+
+.asheartIcon {
+  grid-area: "heart";
+  display: block;
+  align-self: center;
+  justify-self: center;
+  fill: none;
+  height: 16px;
+  width: 16px;
+  stroke: currentcolor;
+  stroke-width: 2;
+  overflow: visible;
+}
+
+.asstarIcon {
+  fill: rgb(255, 56, 92);
+  height: 14px;
+  width: 14px;
+  stroke: currentcolor;
+  stroke-width: 2;
+  overflow: visible;
+  align-content: center;
+}

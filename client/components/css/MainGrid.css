@@ -1,24 +1,18 @@
 .asmain {
-  width: auto;
+  max-width: 100%;
   padding-top: 24px;
-  padding-left: 80px;
-  padding-right: 80px;
 }
 
 .ascarousel {
-  width: 1128px;
-  margin-left: auto;
-  margin-right: auto;
-
+  /* border: 2px solid gold; */
+  max-height: 497px;
 }
 
 .ascontainer {
   display: grid;
   grid-template-columns: 50% 25% 25%;
-  grid-template-rows: 1fr 1fr;
-  align-items: stretch;
+  grid-template-rows: 50% 50%;
 }
-
 
 .asphoto1 {
   grid-column-start: 1;
@@ -67,6 +61,16 @@
   height: 100%;
 }
 
+.asimg:hover {
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+  cursor: pointer;
+}
+
 .asphoto1 img {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
@@ -78,9 +82,7 @@
   border-bottom-right-radius: 12px;
 }
 
-
-
-.asbutton {
+.asgridOverlay {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
@@ -89,8 +91,36 @@
   margin-right: 24px;
   justify-self: end;
   align-self: end;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid black;
+  z-index: 2;
+  font-size: 14px;
 }
 
-.asbutton text {
-  padding: 7px 15px !important;
+.asgridOverlay:hover {
+  cursor: pointer;
 }
+
+.asbutton {
+  padding: 7px 15px !important;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas: "icon" "text";
+  column-gap: 6px;
+}
+
+.asdotdecor {
+  height: 12px;
+  width: 12px;
+  display: block;
+  fill: currentcolor;
+  grid-area: "icon";
+  align-self: center;
+}
+
+/* .asgridOverlay {
+  font-size: 14px;
+  grid-area: "text";
+  align-self: center;
+} */

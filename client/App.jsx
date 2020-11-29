@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
 import axios from 'axios';
 import styles from './App.css';
-import PhotoCarousel from './components/PhotoCarousel.jsx';
-import PhotosModal from './components/modal/index.jsx';
+import Modal from 'react-modal';
+import MainGrid from './components/MainGrid.jsx';
+import PhotosModal from './components/modal/PhotosModal.jsx';
 import Header from './components/Header.jsx';
+import MainPhoto from './minComponents/MainPhoto.jsx';
+import Description from './minComponents/Description.jsx';
+import TopBar from './minComponents/TopBar.jsx';
 
 Modal.setAppElement(document.getElementById('app'));
 
@@ -17,21 +20,53 @@ class App extends React.Component {
       listing: {},
       modal: false,
       modalPhoto: null,
+      windowWidth: window.innerWidth
     };
+
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleResize = this.handleResize.bind(this);
+    this.listenScrollEvent = this.listenScrollEvent.bind(this);
   }
 
   toggleModal (e, state, photo) {
     e.preventDefault();
-    console.log(e);
+
     this.setState({
       modal: state,
       modalPhoto: photo || null
     });
+
+    if (state) {
+      document.getElementsByClassName('overlay')[0].classList.add(styles.hidden);
+    } else if (!state) {
+      document.getElementsByClassName('overlay')[0].classList.remove(styles.hidden);
+    }
+  }
+
+
+  listenScrollEvent(e) {
+    console.log('Scroll event detected!', e);
+  }
+
+  handleResize (e) {
+    console.log('handling resize...');
+    this.setState({ windowWidth: window.innerWidth });
+    console.log(this.state.windowWidth);
+  }
+
+  componentWillUnMount() {
+    window.addEventListener('resize', this.handleResize);
+    // document.getElementsByClassName('scrollwrapper')[0].removeEventListener('scroll', this.listenScrollEvent);
   }
 
   componentDidMount() {
     console.log('mounting component');
+
+    window.addEventListener( 'resize', this.handleResize);
+    window.addEventListener('scroll', this.listenScrollEvent);
+
+    // console.log(document.getElementsByClassName('scrollwrapper'));
+
 
     var pathArr = window.location.pathname.split('/');
     var id = pathArr[pathArr.length - 1];
@@ -57,18 +92,34 @@ class App extends React.Component {
       });
   }
 
+
+
   render () {
-    return (
-      <div className={styles.asmodule}>
-        <Header listing={this.state.listing}/>
-        <Modal isOpen={this.state.modal} >
-          <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto} >
-            Modal is open
-          </PhotosModal>
-        </Modal>
-        <PhotoCarousel toggleModal={this.toggleModal} data={this.state.data}/>
-      </div>
-    );
+    if (this.state.data.length === 0) {
+      return (
+        <div>Rendering Components....</div>
+      );
+    } else if (this.state.windowWidth > 743) {
+      return (
+        <div className={styles.asmodule}>
+          <Header listing={this.state.listing}/>
+          <Modal isOpen={this.state.modal} className={styles.asModal}>
+            <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto}>
+              Modal is open
+            </PhotosModal>
+          </Modal>
+          <MainGrid toggleModal={this.toggleModal} data={this.state.data} modal={this.state.modal}/>
+        </div>
+      );
+    } else if (this.state.windowWidth <= 743) {
+      return (
+        <div className={styles.asmodule}>
+          <TopBar listing={this.state.listing}/>
+          <MainPhoto data={this.state.data} width={this.state.windowWidth}/>
+          <Description listing={this.state.listing}/>
+        </div>
+      );
+    }
   }
 }
 

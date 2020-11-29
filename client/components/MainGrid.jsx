@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './PhotoCarousel.css';
+import styles from './css/MainGrid.css';
 
 
-const PhotoCarousel = (props) => {
+const MainGrid = (props) => {
   var listings = props.data.data;
   var mainGrid = [];
 
@@ -39,13 +39,16 @@ const PhotoCarousel = (props) => {
               );
             })
           }
-          <button className={styles.asbutton} onClick={(e)=> { props.toggleModal(e, true, mainGrid[0]); } }>
-            <div className={styles.astext} >Show all photos</div>
-          </button>
+          <div className={`${styles.asgridOverlay} overlay`} onClick={(e)=> { props.toggleModal(e, true, mainGrid[0]); } }>
+            <div className={styles.asbutton}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17" role="presentation" aria-hidden="true" focusable="false" className={styles.asdotdecor}><circle cx="1.5" cy="1.5" r="1.5"></circle><circle cx="1.5" cy="8.5" r="1.5"></circle><circle cx="8.5" cy="1.5" r="1.5"></circle><circle cx="8.5" cy="8.5" r="1.5"></circle><circle cx="15.5" cy="1.5" r="1.5"></circle><circle cx="15.5" cy="8.5" r="1.5"></circle><circle cx="1.5" cy="15.5" r="1.5"></circle><circle cx="8.5" cy="15.5" r="1.5"></circle><circle cx="15.5" cy="15.5" r="1.5"></circle></svg>
+              <text className={styles.astext} >Show all photos</text>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default PhotoCarousel;
+export default MainGrid;
