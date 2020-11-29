@@ -9,6 +9,7 @@ import Header from './components/Header.jsx';
 import MainPhoto from './minComponents/MainPhoto.jsx';
 import Description from './minComponents/Description.jsx';
 import TopBar from './minComponents/TopBar.jsx';
+import SaveFavorite from './components/SaveFavorite.jsx';
 
 Modal.setAppElement(document.getElementById('app'));
 
@@ -26,6 +27,7 @@ class App extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.listenScrollEvent = this.listenScrollEvent.bind(this);
+    this.toggleMinGrid = this.toggleMinGrid.bind(this);
   }
 
   toggleModal (e, state, photo) {
@@ -43,6 +45,9 @@ class App extends React.Component {
     }
   }
 
+  toggleMinGrid (e) {
+    console.log('attempting to toggle min grid');
+  }
 
   listenScrollEvent(e) {
     console.log('Scroll event detected!', e);
@@ -92,8 +97,6 @@ class App extends React.Component {
       });
   }
 
-
-
   render () {
     if (this.state.data.length === 0) {
       return (
@@ -115,7 +118,7 @@ class App extends React.Component {
       return (
         <div className={styles.asmodule}>
           <TopBar listing={this.state.listing}/>
-          <MainPhoto data={this.state.data} width={this.state.windowWidth}/>
+          <MainPhoto data={this.state.data} width={this.state.windowWidth} toggleMinGrid={this.toggleMinGrid}/>
           <Description listing={this.state.listing}/>
         </div>
       );
