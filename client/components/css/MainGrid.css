@@ -4,7 +4,7 @@
 }
 
 .ascarousel {
-  border: 2px solid gold;
+  /* border: 2px solid gold; */
   max-height: 497px;
 }
 
@@ -63,7 +63,12 @@
 
 .asimg:hover {
   -webkit-filter: brightness(70%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
   transition: all 1s ease;
+  cursor: pointer;
 }
 
 .asphoto1 img {
@@ -77,8 +82,7 @@
   border-bottom-right-radius: 12px;
 }
 
-
-.asbutton {
+.asgridOverlay {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
@@ -87,8 +91,35 @@
   margin-right: 24px;
   justify-self: end;
   align-self: end;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid black;
+  z-index: 2;
 }
 
-.asbutton text {
+.asoverlay:hover {
+  cursor: pointer;
+}
+
+.asbutton {
   padding: 7px 15px !important;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas: "icon" "text";
+  column-gap: 6px;
+}
+
+.asdotdecor {
+  height: 12px;
+  width: 12px;
+  display: block;
+  fill: currentcolor;
+  grid-area: "icon";
+  align-self: center;
+}
+
+.asoverlay text {
+  font-size: 14px;
+  grid-area: "text";
+  align-self: center;
 }

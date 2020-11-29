@@ -2,19 +2,19 @@
 max-width: 100%;
 padding-top: 24px;
 
-border: 2px dashed silver;
+/* border: 2px dashed silver; */
 }
 
 .asheader {
   margin-left: auto;
   margin-right: auto;
 
-  border: 2px solid gold;
+  /* border: 2px solid gold; */
 }
 
-.astopbar {
+/* .astopbar {
   border: 2px solid green;
-}
+} */
 
 .aslistingName {
   font-size: 28px;
@@ -24,8 +24,6 @@ border: 2px dashed silver;
 }
 
 .asbybar {
-  /* -webkit-box-align: baseline !important;
-  align-items: baseline !important; */
   display: grid;
   grid-template-columns: 18px 50px 20px auto 136px;
   grid-template-areas: "star" "reviews" "dot" "loc" "buttons";
@@ -34,7 +32,7 @@ border: 2px dashed silver;
   font-size: 13px !important;
   line-height: 20px !important;
 
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 .asstar {
@@ -49,6 +47,10 @@ border: 2px dashed silver;
   column-gap: 2px;
 }
 
+.asreviews:hover {
+  cursor: pointer;
+}
+
 .asspacer {
   grid-area: "dot";
   justify-self: center;
@@ -61,6 +63,10 @@ border: 2px dashed silver;
   text-decoration: underline;
 }
 
+.aslocation:hover {
+  cursor: pointer;
+}
+
 .asbuttons {
   grid-area: "buttons";
   display: grid;
@@ -71,7 +77,7 @@ border: 2px dashed silver;
 .asshare {
   grid-area: "share";
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 28px 40px;
   grid-template-areas: "arrow" "share";
   justify-self: start;
 }
@@ -81,10 +87,16 @@ border: 2px dashed silver;
   text-decoration: underline;
 }
 
+.asshare:hover {
+  cursor: pointer;
+  background: #00000017;
+  border-radius: 4px;
+}
+
 .assave {
   grid-area: "save";
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 28px 40px;
   grid-template-areas: "heart" "save";
   justify-self: end;
 }
@@ -92,6 +104,12 @@ border: 2px dashed silver;
 .assave text {
   grid-area: "save";
   text-decoration: underline;
+}
+
+.assave:hover {
+  cursor: pointer;
+  background: #00000017;
+  border-radius: 4px;
 }
 
 .asrating {

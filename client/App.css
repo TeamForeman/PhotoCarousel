@@ -5,3 +5,18 @@
 
   /* border: 2px solid blue; */
 }
+
+.hidden {
+  display: none;
+}
+
+.asModal {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  outline: none;
+}

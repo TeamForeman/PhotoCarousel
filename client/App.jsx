@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
 import axios from 'axios';
 import styles from './App.css';
+import Modal from 'react-modal';
 import MainGrid from './components/MainGrid.jsx';
 import PhotosModal from './components/modal/PhotosModal.jsx';
 import Header from './components/Header.jsx';
@@ -29,11 +29,17 @@ class App extends React.Component {
 
   toggleModal (e, state, photo) {
     e.preventDefault();
-    console.log(e);
+
     this.setState({
       modal: state,
       modalPhoto: photo || null
     });
+
+    if (state) {
+      document.getElementsByClassName('overlay')[0].classList.add(styles.hidden);
+    } else if (!state) {
+      document.getElementsByClassName('overlay')[0].classList.remove(styles.hidden);
+    }
   }
 
   handleResize (e) {
@@ -86,12 +92,12 @@ class App extends React.Component {
       return (
         <div className={styles.asmodule}>
           <Header listing={this.state.listing}/>
-          <Modal isOpen={this.state.modal} >
-            <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto} >
+          <Modal isOpen={this.state.modal} className={styles.asModal}>
+            <PhotosModal toggleModal={this.toggleModal} listing={this.state.listing} modalPhoto={this.state.modalPhoto}>
               Modal is open
             </PhotosModal>
           </Modal>
-          <MainGrid toggleModal={this.toggleModal} data={this.state.data}/>
+          <MainGrid toggleModal={this.toggleModal} data={this.state.data} modal={this.state.modal}/>
         </div>
       );
     } else if (this.state.windowWidth <= 743) {
