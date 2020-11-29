@@ -10,8 +10,10 @@ class MainPhoto extends React.Component {
     this.state = {
       photos: data ? data[0].photos : null,
       currentPhoto: data ? data[0].photos[0] : null,
+
     };
 
+    console.log('in grid', this.props);
   }
 
   render () {
@@ -19,27 +21,12 @@ class MainPhoto extends React.Component {
 
     return (
       <div className={styles.ascontainer}>
-
-        <div className={`${styles.asscrollwrapper} scrollwrapper`}>
-          {/* <img src={photo.url}></img> */
-
-            this.state.photos.map( photo => {
-
-              return (
-                <div className={styles.asphoto}>
-                  <img src={photo.url}></img>
-                </div>
-              );
-
-            })
-
-          }
-
+        <div className={styles.asphoto} onClick={ (e)=> { this.props.toggleMinGrid(e); }}>
+          <img src={photo.url}></img>
           <div className={styles.asoverlay}>
             <text>{ (photo.photoId) + '/' + this.state.photos.length}</text>
           </div>
         </div>
-
       </div>
     );
   }
