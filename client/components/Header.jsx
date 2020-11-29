@@ -23,7 +23,9 @@ const Header = (props) => {
 
           <div className={styles.asspacer}>·</div>
 
-          <div className={styles.aslocation}>{props.listing.location}</div>
+          <div className={styles.aslocation}>
+            <text>{props.listing.location}</text>
+          </div>
 
           <div className={styles.asbuttons}>
             <div className={styles.asshare}>

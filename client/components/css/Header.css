@@ -25,7 +25,7 @@ padding-top: 24px;
 
 .asbybar {
   display: grid;
-  grid-template-columns: 18px 50px 20px auto 136px;
+  grid-template-columns: 18px 50px 20px auto 150px;
   grid-template-areas: "star" "reviews" "dot" "loc" "buttons";
   margin-top: 12px !important;
   font-weight: 300 !important;
@@ -37,6 +37,8 @@ padding-top: 24px;
 
 .asstar {
   grid-area: "star";
+  align-self: center;
+  justify-self: start;
 }
 
 .asreviews {
@@ -47,85 +49,99 @@ padding-top: 24px;
   column-gap: 2px;
 }
 
+.asrating {
+  font-weight: 500;
+  grid-area: "rating";
+  align-self: center;
+  justify-self: center;
+}
+
+.asrevtotal {
+  opacity: 70%;
+  grid-area: "revtotal";
+  align-self: center;
+  justify-self: center;
+}
+
 .asreviews:hover {
   cursor: pointer;
 }
 
 .asspacer {
   grid-area: "dot";
+  align-self: center;
   justify-self: center;
 }
 
 .aslocation {
   grid-area: "loc";
-  justify-self: left;
+  align-self: center;
   opacity: 70%;
   text-decoration: underline;
 }
 
-.aslocation:hover {
+.aslocation text:hover {
   cursor: pointer;
 }
 
 .asbuttons {
   grid-area: "buttons";
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
   grid-template-areas: "share" "save";
 }
 
 .asshare {
+  padding: 4px;
   grid-area: "share";
   display: grid;
   grid-template-columns: 28px 40px;
   grid-template-areas: "arrow" "share";
-  justify-self: start;
+  /* justify-self: start; */
+  align-self: center;
+  justify-self: center;
 }
 
 .asshare text {
   grid-area: "share";
+  align-self: center;
   text-decoration: underline;
 }
 
 .asshare:hover {
   cursor: pointer;
-  background: #00000017;
+  background: #00000013;
   border-radius: 4px;
 }
 
 .assave {
+  padding: 4px;
   grid-area: "save";
   display: grid;
   grid-template-columns: 28px 40px;
   grid-template-areas: "heart" "save";
-  justify-self: end;
+  /* justify-self: end; */
+  align-self: center;
+  justify-self: center;
 }
 
 .assave text {
   grid-area: "save";
+  align-self: center;
   text-decoration: underline;
 }
 
 .assave:hover {
   cursor: pointer;
-  background: #00000017;
+  background: #00000013;
   border-radius: 4px;
-}
-
-.asrating {
-  font-weight: 500;
-  grid-area: "rating";
-}
-
-.asrevtotal {
-  opacity: 70%;
-  grid-area: "revtotal"
 }
 
 /* ICONS */
 .asarrowIcon {
   grid-area: "arrow";
   display: block;
+  align-self: center;
   justify-self: center;
   fill: none;
   height: 16px;
@@ -138,6 +154,7 @@ padding-top: 24px;
 .asheartIcon {
   grid-area: "heart";
   display: block;
+  align-self: center;
   justify-self: center;
   fill: none;
   height: 16px;
