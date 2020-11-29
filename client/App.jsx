@@ -25,6 +25,7 @@ class App extends React.Component {
 
     this.toggleModal = this.toggleModal.bind(this);
     this.handleResize = this.handleResize.bind(this);
+    this.listenScrollEvent = this.listenScrollEvent.bind(this);
   }
 
   toggleModal (e, state, photo) {
@@ -42,6 +43,11 @@ class App extends React.Component {
     }
   }
 
+
+  listenScrollEvent(e) {
+    console.log('Scroll event detected!', e);
+  }
+
   handleResize (e) {
     console.log('handling resize...');
     this.setState({ windowWidth: window.innerWidth });
@@ -50,12 +56,17 @@ class App extends React.Component {
 
   componentWillUnMount() {
     window.addEventListener('resize', this.handleResize);
+    // document.getElementsByClassName('scrollwrapper')[0].removeEventListener('scroll', this.listenScrollEvent);
   }
 
   componentDidMount() {
     console.log('mounting component');
 
     window.addEventListener( 'resize', this.handleResize);
+    window.addEventListener('scroll', this.listenScrollEvent);
+
+    // console.log(document.getElementsByClassName('scrollwrapper'));
+
 
     var pathArr = window.location.pathname.split('/');
     var id = pathArr[pathArr.length - 1];
@@ -102,10 +113,9 @@ class App extends React.Component {
       );
     } else if (this.state.windowWidth <= 743) {
       return (
-        console.log('In min state', this.state.data),
         <div className={styles.asmodule}>
           <TopBar listing={this.state.listing}/>
-          <MainPhoto data={this.state.data}/>
+          <MainPhoto data={this.state.data} width={this.state.windowWidth}/>
           <Description listing={this.state.listing}/>
         </div>
       );

@@ -1,15 +1,30 @@
 .ascontainer {
   font-family: "Roboto" sans-serif serif;
   max-width: 743px;
+  /* max-height: 495px; */
   padding-top: 24px;
   margin: 0px auto;
   position: relative;
 }
 
-/* .asphoto {
+.asscrollwrapper {
+  overflow: auto;
+  white-space: nowrap;
+  /* scroll-snap-type: x mandatory;
+  scroll-padding: 50%;
+  overflow-x: scroll; */
+  scroll-padding: 0 50%;
+  scroll-snap-type: x mandatory;
 
-  border: 2px solid palegoldenrod;
-} */
+}
+
+.asphoto {
+  display: inline-block;
+  object-fit: cover;
+  scroll-snap-align: center;
+  max-height: 100%;
+  width: 100%;
+}
 
 .asphoto img{
   width: 100%;

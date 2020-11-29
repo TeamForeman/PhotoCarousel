@@ -52,6 +52,7 @@ class PhotosModal extends React.Component {
   render () {
     return (
       <div className={styles.asmodalContainer}>
+
         <div className={styles.asmodalBar}>
 
           <div className={styles.asbarGrid}>

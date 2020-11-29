@@ -95,6 +95,7 @@
   border-radius: 8px;
   border: 1px solid black;
   z-index: 2;
+  font-size: 14px;
 }
 
 .asgridOverlay:hover {
@@ -118,8 +119,8 @@
   align-self: center;
 }
 
-.asoverlay text {
+/* .asgridOverlay {
   font-size: 14px;
   grid-area: "text";
   align-self: center;
-}
+} */
