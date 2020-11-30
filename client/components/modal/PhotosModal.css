@@ -113,11 +113,20 @@
   display: grid;
   grid-template-columns: 96px auto 96px;
   grid-template-areas: "left display right";
+  height: auto;
 }
 
 .asdisplay {
   grid-area: "display";
   justify-self: center;
+
+}
+
+.asdisplay img {
+  object-fit: cover;
+  min-height: 500px;
+  max-height: 500px;
+  max-width: inherit;
 }
 
 .asmoveLeft {
