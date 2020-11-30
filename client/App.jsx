@@ -40,7 +40,7 @@ class App extends React.Component {
 
     if (state) {
       document.getElementsByClassName('overlay')[0].classList.add(styles.hidden);
-    } else if (!state && this.state.modal === false) {
+    } else if (!state) {
       document.getElementsByClassName('overlay')[0].classList.remove(styles.hidden);
     }
   }
