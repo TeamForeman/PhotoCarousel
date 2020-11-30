@@ -54,9 +54,9 @@ class App extends React.Component {
   }
 
   handleResize (e) {
-    console.log('handling resize...');
+    // console.log('handling resize...');
     this.setState({ windowWidth: window.innerWidth });
-    console.log(this.state.windowWidth);
+    // console.log(this.state.windowWidth);
   }
 
   componentWillUnMount() {
@@ -102,7 +102,7 @@ class App extends React.Component {
       return (
         <div>Rendering Components....</div>
       );
-    } else if (this.state.windowWidth > 743) {
+    } else if (this.state.windowWidth > 743 || this.state.modal === true) {
       return (
         <div className={styles.asmodule}>
           <Header listing={this.state.listing}/>
@@ -114,7 +114,7 @@ class App extends React.Component {
           <MainGrid toggleModal={this.toggleModal} data={this.state.data} modal={this.state.modal}/>
         </div>
       );
-    } else if (this.state.windowWidth <= 743) {
+    } else if (this.state.windowWidth <= 743 && this.state.modal === false) {
       return (
         <div className={styles.asmodule}>
           <TopBar listing={this.state.listing}/>
