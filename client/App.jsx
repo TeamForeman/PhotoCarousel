@@ -10,6 +10,7 @@ import MainPhoto from './minComponents/MainPhoto.jsx';
 import Description from './minComponents/Description.jsx';
 import TopBar from './minComponents/TopBar.jsx';
 import SaveFavorite from './components/SaveFavorite.jsx';
+import MinGrid from './minComponents/MinGrid.jsx';
 
 Modal.setAppElement(document.getElementById('app'));
 
@@ -45,8 +46,18 @@ class App extends React.Component {
     }
   }
 
-  toggleMinGrid (e) {
-    console.log('attempting to toggle min grid');
+  toggleMinGrid (e, state) {
+    console.log('mingrid toddde')
+    this.setState({
+      modal: state,
+      modalPhoto: this.state.listing.photos[0]
+    });
+
+    // if (state) {
+    //   document.getElementsByClassName('overlay')[0].classList.add(styles.hidden);
+    // } else if (!state) {
+    //   document.getElementsByClassName('overlay')[0].classList.remove(styles.hidden);
+    // }
   }
 
   listenScrollEvent(e) {
@@ -56,6 +67,11 @@ class App extends React.Component {
   handleResize (e) {
     // console.log('handling resize...');
     this.setState({ windowWidth: window.innerWidth });
+    if (this.state.modal === false && window.innerWidth > 743) {
+      document.getElementsByClassName('overlay')[0].classList.remove(styles.hidden);
+    } else if ( this.state.modal === true && window.innerWidth > 743) {
+      document.getElementsByClassName('overlay')[0].classList.add(styles.hidden);
+    }
     // console.log(this.state.windowWidth);
   }
 
@@ -100,9 +116,9 @@ class App extends React.Component {
   render () {
     if (this.state.data.length === 0) {
       return (
-        <div>Rendering Components....</div>
+        <div></div>
       );
-    } else if (this.state.windowWidth > 743 || this.state.modal === true) {
+    } else if (this.state.windowWidth > 743 || this.state.modal === true && this.state.windowWidth > 743) {
       return (
         <div className={styles.asmodule}>
           <Header listing={this.state.listing}/>
@@ -121,6 +137,10 @@ class App extends React.Component {
           <MainPhoto data={this.state.data} width={this.state.windowWidth} toggleMinGrid={this.toggleMinGrid}/>
           <Description listing={this.state.listing}/>
         </div>
+      );
+    } else if (this.state.windowWidth <= 743 && this.state.modal === true) {
+      return (
+        <MinGrid data={this.state.data} toggleMinGrid={this.toggleMinGrid}/>
       );
     }
   }
