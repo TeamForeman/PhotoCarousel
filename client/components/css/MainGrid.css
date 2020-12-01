@@ -5,11 +5,13 @@
 
 .ascarousel {
   /* border: 2px solid gold; */
-  max-height: 500px;
+  max-height: 550px;
+  min-height: 324px;
 }
 
 .ascontainer {
   max-height: inherit;
+  min-height: inherit;
   display: grid;
   grid-template-columns: 50% 25% 25%;
   grid-template-rows: 50% 50%;

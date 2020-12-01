@@ -21,7 +21,7 @@ class MainPhoto extends React.Component {
 
     return (
       <div className={styles.ascontainer}>
-        <div className={styles.asphoto} onClick={ (e)=> { this.props.toggleMinGrid(e); }}>
+        <div className={styles.asphoto} onClick={ (e)=> { this.props.toggleMinGrid(e, true); }}>
           <img src={photo.url}></img>
           <div className={styles.asoverlay}>
             <text>{ (photo.photoId) + '/' + this.state.photos.length}</text>

@@ -72,17 +72,40 @@ class PhotosModal extends React.Component {
         </div>
 
         <div className={styles.asslide}>
-          <div className={styles.asmoveLeft} onClick={ (e)=>{ this.changePhoto('left'); }}>
-            <svg className={styles.asmoveIcon}viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" ><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg>
-          </div>
+          {(() => {
+            if (this.state.id === 1) {
+              return (
+                <div>{null}</div>
+              );
+            } else if (this.state.id !== 1) {
+              return (
+                <div className={styles.asmoveLeft} onClick={ (e)=>{ this.changePhoto('left'); }}>
+                  <svg className={styles.asmoveIcon} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" ><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg>
+                </div>
+              );
+            }
+          })()
+          }
 
           <div className={styles.asdisplay}>
             <img src={this.state.photo.url}></img>
           </div>
 
-          <div className={styles.asmoveRight} onClick={ ()=>{ this.changePhoto('right'); }}>
-            <svg className={styles.asmoveIcon} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" ><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg>
-          </div>
+          {(() => {
+            if (this.state.id === this.photos.length) {
+              return (
+                <div>{null}</div>
+              );
+            } else if (this.state.id !== this.photos.length) {
+              return (
+                <div className={styles.asmoveRight} onClick={ ()=>{ this.changePhoto('right'); }}>
+                  <svg className={styles.asmoveIcon} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" ><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg>
+                </div>
+              );
+            }
+          })()
+          }
+
         </div>
 
         <div className={styles.asbottomBar}>
