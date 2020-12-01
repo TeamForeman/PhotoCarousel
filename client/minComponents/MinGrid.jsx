@@ -38,13 +38,13 @@ const MinGrid = (props) => {
               return (
                 <div className={styles.as3grid}>
                   <div className={styles['as3-1']}>
-                    <img src={div[0].url}></img>
+                    <img className={styles.asimage} src={div[0].url}></img>
                   </div>
                   <div className={styles['as3-2']}>
-                    <img src={div[1].url}></img>
+                    <img className={styles.asimage} src={div[1].url}></img>
                   </div>
                   <div className={styles['as3-3']}>
-                    <img src={div[2].url}></img>
+                    <img className={styles.asimage} src={div[2].url}></img>
                   </div>
                 </div>
               );
@@ -52,10 +52,10 @@ const MinGrid = (props) => {
               return (
                 <div className={styles.as2grid}>
                   <div className={styles['as2-1']}>
-                    <img src={div[0].url}></img>
+                    <img className={styles.asimage} src={div[0].url}></img>
                   </div>
                   <div className={styles['as2-2']}>
-                    <img src={div[1].url}></img>
+                    <img className={styles.asimage} src={div[1].url}></img>
                   </div>
                 </div>
               );
@@ -63,7 +63,7 @@ const MinGrid = (props) => {
               return (
                 <div className={styles.as1grid}>
                   <div className={styles['as1-1']}>
-                    <img src={div[0].url}></img>
+                    <img className={styles.asimage} src={div[0].url}></img>
                   </div>
                 </div>
               );
