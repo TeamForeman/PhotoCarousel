@@ -140,7 +140,7 @@
   max-width: 100%;
 } */
 
-img {
+.asimage {
   background-color: whitesmoke;
   color: whitesmoke;
   /* overflow: hidden; */
@@ -150,7 +150,7 @@ img {
   height: 100%;
 }
 
-img:hover {
+.asimage:hover {
   cursor: pointer;
   -webkit-filter: brightness(70%);
 }
