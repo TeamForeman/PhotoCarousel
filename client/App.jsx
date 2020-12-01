@@ -27,7 +27,6 @@ class App extends React.Component {
 
     this.toggleModal = this.toggleModal.bind(this);
     this.handleResize = this.handleResize.bind(this);
-    this.listenScrollEvent = this.listenScrollEvent.bind(this);
     this.toggleMinGrid = this.toggleMinGrid.bind(this);
   }
 
@@ -52,17 +51,9 @@ class App extends React.Component {
       modal: state,
       modalPhoto: this.state.listing.photos[0]
     });
-
-    // if (state) {
-    //   document.getElementsByClassName('overlay')[0].classList.add(styles.hidden);
-    // } else if (!state) {
-    //   document.getElementsByClassName('overlay')[0].classList.remove(styles.hidden);
-    // }
   }
 
-  listenScrollEvent(e) {
-    console.log('Scroll event detected!', e);
-  }
+
 
   handleResize (e) {
     // console.log('handling resize...');
@@ -77,16 +68,12 @@ class App extends React.Component {
 
   componentWillUnMount() {
     window.addEventListener('resize', this.handleResize);
-    // document.getElementsByClassName('scrollwrapper')[0].removeEventListener('scroll', this.listenScrollEvent);
   }
 
   componentDidMount() {
     console.log('mounting component');
 
     window.addEventListener( 'resize', this.handleResize);
-    window.addEventListener('scroll', this.listenScrollEvent);
-
-    // console.log(document.getElementsByClassName('scrollwrapper'));
 
 
     var pathArr = window.location.pathname.split('/');

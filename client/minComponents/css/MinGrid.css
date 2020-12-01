@@ -1,3 +1,15 @@
+.aswindowdiv {
+  background-color: whitesmoke;
+  color: whitesmoke;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+
+}
+
 /* CLOSE GRID ICON */
 
 .asmingridheader {
@@ -6,19 +18,11 @@
   display: grid;
 }
 .asclosemingrid {
-  /* display: block;
-  fill: none;
-  height: 20px;
-  width: 20px;
-  stroke: currentcolor;
-  stroke-width: 3;
-  overflow: visible;
-  justify-self: start; */
   padding: 8px;
   height: 16px;
   width: 16px;
   display: block;
-  fill: currentcolor;
+  fill: rgb(97, 97, 97);
 }
 
 .asclosemingrid:hover {
@@ -29,12 +33,17 @@
 /* MIN GRID SECTION */
 
 .asmincontainer {
+  background-color: whitesmoke;
+  color: whitesmoke;
   max-width: 743px;
   margin: 0 auto;
+  padding-bottom: 48px;
 }
 
 /* THREE PHOTO SECTION */
 .as3grid {
+  background-color: whitesmoke;
+  color: whitesmoke;
   position: relative;
   /* padding-top: 8px; */
   max-width: inherit;
@@ -45,6 +54,8 @@
 }
 
 .as3-1 {
+  background-color: whitesmoke;
+  color: whitesmoke;
   padding-top: 8px;
   grid-column-start: 1;
   grid-column-end: 3;
@@ -53,6 +64,8 @@
 }
 
 .as3-2 {
+  background-color: whitesmoke;
+  color: whitesmoke;
   padding-top: 8px;
   padding-right: 4px;
   grid-column-start: 1;
@@ -62,6 +75,8 @@
 }
 
 .as3-3 {
+  background-color: whitesmoke;
+  color: whitesmoke;
   padding-top: 8px;
   padding-left: 4px;
   grid-column-start: 2;
@@ -72,6 +87,8 @@
 
 /* IF THE LAST PHOTOS ARE A GROUP OF 2 */
 .as2grid {
+  background-color: whitesmoke;
+  color: whitesmoke;
   padding-top: 8px;
   max-width: inherit;
   display: grid;
@@ -79,6 +96,8 @@
 }
 
 .as2-1 {
+  background-color: whitesmoke;
+  color: whitesmoke;
   max-height: inherit;
   /* padding-top: 8px; */
   padding-right: 4px;
@@ -87,6 +106,8 @@
 }
 
 .as2-2 {
+  background-color: whitesmoke;
+  color: whitesmoke;
   max-height: inherit;
   /* padding-top: 8px; */
   padding-left: 4px;
@@ -96,6 +117,8 @@
 
 /* IF THE LAST PHOTO IS JUST 1 */
 .as1grid {
+  background-color: whitesmoke;
+  color: whitesmoke;
   padding-top: 8px;
   max-height: 696px;
   max-width: inherit;
@@ -104,6 +127,8 @@
 }
 
 .as1-1 {
+  background-color: whitesmoke;
+  color: whitesmoke;
   /* padding-top: 8px; */
   grid-column-start: 1;
   grid-column-end: 2;
@@ -116,6 +141,8 @@
 } */
 
 img {
+  background-color: whitesmoke;
+  color: whitesmoke;
   /* overflow: hidden; */
   overflow: hidden;
   object-fit: cover;
