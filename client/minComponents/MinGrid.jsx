@@ -5,11 +5,6 @@ const MinGrid = (props) => {
   console.log(props);
   const photos = props.data.data[0].photos;
 
-  // const createClass = (x) => {
-  //   var className = 'asgridphoto' + x.photoId;
-  //   return className;
-  // };
-
   const createGroups = (total) => {
     var groups = [];
 
@@ -25,8 +20,6 @@ const MinGrid = (props) => {
       }
       groups.push(divGroup);
     }
-    // console.log('total', total);
-    // console.log(groups);
     return groups;
   };
 

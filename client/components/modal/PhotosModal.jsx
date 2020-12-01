@@ -17,7 +17,6 @@ class PhotosModal extends React.Component {
     console.log(this.photos, this.index);
   }
 
-  // write changePhoto function
   changePhoto(button) {
     console.log('clicked' + button);
     var photos = this.photos;
