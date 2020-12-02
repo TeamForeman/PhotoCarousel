@@ -11,12 +11,12 @@
 
 ## Table of Contents
 
-1. [CRUD](#crud_api)
+1. [CRUD](#crud-api)
 1. [Requirements](#requirements)
 
 
 
-## CRUD_API
+## CRUD API
 *All URLs must be prefixed with /api*
 Action | METHOD | URL
 -------|--------|----
