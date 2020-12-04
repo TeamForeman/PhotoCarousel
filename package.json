@@ -10,7 +10,7 @@
   "scripts": {
     "reset": "dotenv -- cross-var psql postgres -U %DB_USER% -W -f database/schema.sql",
     "csv": "node database/csvSeed.js",
-    "seed:pg": "node database/csvToPostgres.js",
+    "seed:pg": "dotenv -- cross-var psql sdc_photo_carousel -U %DB_USER% -W -f database/csvToPostgres.sql",
     "seed": "node database/seed.js",
     "start": "node server/app.js",
     "server:dev": "nodemon server/app.js",

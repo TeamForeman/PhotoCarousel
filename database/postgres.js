@@ -16,7 +16,7 @@ sequelize.authenticate()
 })
 
 const Listing = sequelize.define('listing', {
-  shareId: {
+  share_id: {
     type: DataTypes.INTEGER,
     primaryKey: true
   },
@@ -32,19 +32,27 @@ const Listing = sequelize.define('listing', {
   listing: {
     type: DataTypes.STRING
   }
+}, {
+  timestamps: false
 });
 
 const Photo = sequelize.define('photo', {
-  shareId: {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true
+  },
+  share_id: {
     type: DataTypes.INTEGER
   },
   url: {
     type: DataTypes.STRING
   }
+}, {
+  timestamps: false
 });
 
-Listing.hasMany(Photo, { foreignKey: 'shareId' });
-Photo.belongsTo(Listing, { foreignKey: 'shareId' });
+Listing.hasMany(Photo, { foreignKey: 'share_id' });
+Photo.belongsTo(Listing, { foreignKey: 'share_id' });
 
 sequelize.sync();
 

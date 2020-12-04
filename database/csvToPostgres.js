@@ -13,5 +13,10 @@ const filePathPhotos = './database/monsterPhotos.csv';
 
 // })
 
+const seedListings = await pg.sequelize.query(`COPY listings FROM ${filePathListing} DELIMITER ',' CSV HEADER`, { type: pg.QueryTypes })
 
-COPY listings FROM filePathListing DELIMITER ‘,’ CSV HEADER;
+
+
+COPY listings FROM filePathListing DELIMITER ',' CSV HEADER;
+
+COPY photos FROM filePathPhotos DELIMITER ',' CSV HEADER;
