@@ -1,0 +1,1 @@
+COPY listings FROM './database/monsterListing.csv' DELIMITER ‘,’ CSV HEADER;

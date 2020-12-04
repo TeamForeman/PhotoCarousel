@@ -53,7 +53,7 @@ for (var i = 0; i < 1000; i++) {
   photoList.push(`https://loremflickr.com/320/240/${faker.address.country().split(' ')[0]}`);
 }
 
-var headerPhotos = 'shareId, photos\n';
+var headerPhotos = 'shareId, url\n';
 fs.writeFileSync(filePathPhotos, headerPhotos);
 let writeStreamPhotos = fs.createWriteStream(filePathPhotos, { flags: 'a' });
 const photosBar = multiBar.create(totalRecords, 0);
@@ -64,7 +64,7 @@ const fakePhotos = function(start) {
 
   while (count <= totalRecords) {
     photosBar.update(count);
-    var randomPhotos = Math.floor((Math.random() * 3) + 4);
+    var randomPhotos = Math.floor((Math.random() * 7) + 7);
     var shareId = count;
 
     for (var j = 0; j < randomPhotos; j++) {
