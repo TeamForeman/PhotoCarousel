@@ -79,7 +79,7 @@ class App extends React.Component {
     var pathArr = window.location.pathname.split('/');
     var id = pathArr[pathArr.length - 1];
 
-    axios.get(`/api/carousel-module/photos/${id}`)
+    axios.get(`/api/carousel-module/photos/1`)
       .then(res => {
         console.log(res.data[0]);
         var photos = res.data[0].photos;

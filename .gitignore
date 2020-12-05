@@ -28,3 +28,8 @@ bundle.js
 *.pem
 login.sh
 
+## ENVIRONMENTAL VARIABLES
+.env
+
+## GENERATED CSV DATA
+*.csv

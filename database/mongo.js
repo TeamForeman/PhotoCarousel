@@ -52,5 +52,20 @@ let returnListing = (id, cb) => {
 
 };
 
-module.exports.saveMany = saveMany;
-module.exports.returnListing = returnListing;
+const addItem = (data, cb) => {
+  Listing.create({
+    // all of the information matching the schema's framework
+    sharedId: x,
+    name: names[getRandomNum(0, names.length)],
+    rating: makeRandomRating(),
+    reviews: getRandomNum(4, 80), // needs a random number
+    location: faker.address.city() + ', ' + faker.address.state() + ', ' + faker.address.country(),
+    photos: randomPhotoGrouper(getRandomNum(7, 14))
+
+  })
+}
+
+module.exports = {
+  saveMany,
+  returnListing
+}
