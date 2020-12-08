@@ -1,54 +1,55 @@
+/* eslint-disable no-console */
 require('dotenv').config();
 const { Sequelize, DataTypes, QueryTypes } = require('sequelize');
 
 const sequelize = new Sequelize('sdc_photo_carousel', process.env.DB_USER, process.env.DB_PASS, {
   host: process.env.DB_HOST,
   dialect: 'postgres',
-  logging: false
+  logging: false,
 });
 
 sequelize.authenticate()
-.then(()=> {
-  console.log('Yay!');
-})
-.catch((err)=> {
-  console.error(err);
-})
+  .then(() => {
+    console.log('Yay!');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 const Listing = sequelize.define('listing', {
   share_id: {
     type: DataTypes.INTEGER,
-    primaryKey: true
+    primaryKey: true,
   },
   name: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
   },
   rating: {
-    type: DataTypes.FLOAT
+    type: DataTypes.FLOAT,
   },
   reviews: {
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
   },
   listing: {
-    type: DataTypes.STRING
-  }
+    type: DataTypes.STRING,
+  },
 }, {
-  timestamps: false
+  timestamps: false,
 });
 
 const Photo = sequelize.define('photo', {
   id: {
     type: DataTypes.INTEGER,
-    primaryKey: true
+    primaryKey: true,
   },
   share_id: {
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
   },
   url: {
-    type: DataTypes.STRING
-  }
+    type: DataTypes.STRING,
+  },
 }, {
-  timestamps: false
+  timestamps: false,
 });
 
 Listing.hasMany(Photo, { foreignKey: 'share_id' });
@@ -60,5 +61,5 @@ module.exports = {
   Listing,
   Photo,
   QueryTypes,
-  sequelize
+  sequelize,
 };

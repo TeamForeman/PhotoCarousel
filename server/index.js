@@ -1,16 +1,18 @@
+/* eslint-disable no-console */
 const express = require('express');
-const app = express();
-const db = require('../database/mongo.js');
-const pg = require('../database/postgres.js');
-const bodyParser = require('body-parser');
-const bluebird = require('bluebird');
 const path = require('path');
+const bodyParser = require('body-parser');
+// const db = require('../database/mongo.js');
+// const pg = require('../database/postgres.js');
+const cs = require('../database/cassandra.js');
+// const bluebird = require('bluebird');
+
+const app = express();
 
 // MIDDLEWARE
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(`${__dirname}/../client/dist`));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 // API ENDPOINTS
 app.get('/carousel-module/*', (req, res) => {
@@ -18,27 +20,52 @@ app.get('/carousel-module/*', (req, res) => {
 });
 
 app.get('/api/carousel-module/photos/:id', (req, res) => {
-  var id = req.params.id;
-  db.returnListing(id, (x) => {
-    var data = x;
-    res.send(data);
+  const { id } = req.params;
+  cs.getListing(id, (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(404).end(err);
+    } else {
+      res.send(data);
+    }
   });
 });
 
 app.put('/api/carousel-module/photos/:id', (req, res) => {
-  res.status(204).send();
+  const { id } = req.params;
+  cs.updateListingName(id, req.body, (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(404).end();
+    } else {
+      res.status(204).send(data);
+    }
+  });
 });
 
 app.post('/api/carousel-module/photos/', (req, res) => {
-
-  res.status(201).send()
+  cs.addListing(req.body, (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(404).end();
+    } else {
+      res.status(201).send(data);
+    }
+  });
 });
 
 app.delete('/api/carousel-module/photos/:id', (req, res) => {
-
-  res.status(204).send()
+  const { id } = req.params;
+  cs.removeListing(id, (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(404).end();
+    } else {
+      res.status(204).send(data);
+    }
+  });
 });
 
 module.exports = {
-  app
-}
+  app,
+};

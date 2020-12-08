@@ -12,12 +12,14 @@ name TEXT,
 rating FLOAT,
 reviews INT,
 listing TEXT,
-PRIMARY KEY(share_id, name)
+PRIMARY KEY(share_id)
 );
 
 CREATE TABLE photos(
-id INT,
+photo_id UUID,
 share_id INT,
+description TEXT,
 url TEXT,
-PRIMARY KEY((id), share_id)
+PRIMARY KEY(photo_id)
 );
+CREATE INDEX photos_share_id_idx ON photos (share_id);
