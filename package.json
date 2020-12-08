@@ -17,7 +17,7 @@
     "start": "node server/app.js",
     "server:dev": "nodemon server/app.js",
     "build": "webpack --mode=production -d source-map",
-    "react:dev": "webpack --mode=devlopment -d eval-source-map --watch",
+    "react:dev": "webpack --mode=development -d eval-source-map --watch",
     "start:pm2": "pm2 start server/index.js",
     "stop:pm2": "pm2 stop server/index.js",
     "test": "jest"
@@ -54,6 +54,7 @@
     "react-dom": "^17.0.1",
     "react-modal": "^3.11.2",
     "sequelize": "^6.3.5",
+    "uuid": "^8.3.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
   },
@@ -62,7 +63,13 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "style-loader": "^2.0.0"
   }
 }

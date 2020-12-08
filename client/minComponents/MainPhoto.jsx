@@ -16,7 +16,7 @@ class MainPhoto extends React.Component {
     console.log('in grid', this.props);
   }
 
-  render () {
+  render() {
     var photo = this.state.currentPhoto;
 
     return (
@@ -24,7 +24,7 @@ class MainPhoto extends React.Component {
         <div className={styles.asphoto} onClick={ (e)=> { this.props.toggleMinGrid(e, true); }}>
           <img src={photo.url}></img>
           <div className={styles.asoverlay}>
-            <text>{ (photo.photoId) + '/' + this.state.photos.length}</text>
+            <span>{ (photo.photoId) + '/' + this.state.photos.length}</span>
           </div>
         </div>
       </div>

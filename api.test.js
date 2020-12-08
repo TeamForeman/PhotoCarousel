@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 // import rendered from 'react-test-renderer';
 import App from './client/App.jsx';
@@ -8,16 +9,15 @@ test('dummy test is running', () => {
 });
 
 test('Server is pulling 100 listings from the database', () => {
-  var data = [];
+  let data = [];
   axios.get('/api/homes/photos')
-    .then(res => {
+    .then((res) => {
       data = res.data;
     })
-    .catch (err => {
+    .catch((err) => {
       console.log('ERROR: ', err);
     })
-    .then( () => {
+    .then(() => {
       expect(data.length).toBe(100);
     });
 });
-

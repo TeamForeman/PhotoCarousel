@@ -12,8 +12,9 @@ WITH DELIMITER=','
 AND HEADER=TRUE;
 
 COPY photos (
-id,
+photo_id,
 share_id,
+description,
 url
 )
 FROM 'database/monsterPhotos.csv'
