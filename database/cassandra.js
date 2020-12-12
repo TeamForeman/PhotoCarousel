@@ -12,62 +12,51 @@ const client = new cassandra.Client({
   authProvider,
 });
 
-// let timeUUID = new Date();
-// // timeUUID = timeUUID.toISOString();
-// const testInsert = 'INSERT INTO photos(photo_id) VALUES(now())';
-
-// const test = async () => {
-//   const query1 = await client.execute(testInsert);
-
-//   console.log(query1);
-// };
-// test();
-
-const getListing = async (id, cb) => {
+const getListing = (id, cb) => {
   const listingByIdQ = 'SELECT * FROM listings_by_id WHERE share_id=?';
   const params = [id];
 
-  const listingById = await client.execute(listingByIdQ, params, { prepare: true });
-
-  if (listingById.rows.length) {
-    const { rating } = listingById.rows[0];
-    const data = {
-      sharedId: listingById.rows[0].share_id,
-      name: listingById.rows[0].name || '',
-      rating: rating || '',
-      reviews: listingById.rows[0].reviews || '',
-      location: listingById.rows[0].listing || '',
-      photos: [],
-    };
-    listingById.rows.forEach((item) => {
-      const photo = {
-        description: item.description,
-        photo_id: item.photo_id,
-        share_id: item.share_id,
-        url: item.url,
+  client.execute(listingByIdQ, params, { prepare: true }, (err, result) => {
+    if (err) {
+      cb(err);
+    } else {
+      const { rating } = result.rows[0];
+      const data = {
+        sharedId: result.rows[0].share_id,
+        name: result.rows[0].name || '',
+        rating: rating || '',
+        reviews: result.rows[0].reviews || '',
+        location: result.rows[0].listing || '',
+        photos: [],
       };
-      data.photos.push(photo);
-    });
-    cb(null, [data]);
-  } else {
-    cb('ERROR FETCHING DATA');
-  }
+      result.rows.forEach((item) => {
+        const photo = {
+          description: item.description,
+          photo_id: item.photo_id,
+          share_id: item.share_id,
+          url: item.url,
+        };
+        data.photos.push(photo);
+      });
+      cb(null, [data]);
+    }
+  });
 };
 
-const updateListingName = async (id, update, cb) => {
+const updateListingName = (id, update, cb) => {
   const updateListingNameQ = 'UPDATE listings_by_id SET name=? WHERE share_id=?';
   const params = [update.name, id];
 
-  const updateName = await client.execute(updateListingNameQ, params, { prepare: true })
-    .catch((err) => {
+  client.execute(updateListingNameQ, params, { prepare: true }, (err, result) => {
+    if (err) {
       cb(err);
-    });
-  if (updateName) {
-    cb(null, updateName);
-  }
+    } else {
+      cb(null, result);
+    }
+  });
 };
 
-const addListing = async (post, cb) => {
+const addListing = (post, cb) => {
   const listingQ = 'INSERT INTO listings_by_id(share_id, name, rating, reviews, photo_id, listing, url, description) VALUES(?,?,?,?,?,?,?,?)';
   const shareId = uuidv4();
   const photoId = uuidv4();
@@ -82,26 +71,26 @@ const addListing = async (post, cb) => {
     post.description,
   ];
 
-  const listing = await client.execute(listingQ, params, { prepare: true })
-    .catch((err) => {
+  client.execute(listingQ, params, { prepare: true }, (err, result) => {
+    if (err) {
       cb(err);
-    });
-  if (listing) {
-    cb(null, listing);
-  }
+    } else {
+      cb(null, result);
+    }
+  });
 };
 
 const removeListing = async (id, cb) => {
   const removeListingQ = 'DELETE FROM listings_by_id WHERE share_id=?';
   const params = [id];
 
-  const remove = await client.execute(removeListingQ, params, { prepare: true })
-    .catch((err) => {
+  client.execute(removeListingQ, params, { prepare: true }, (err, result) => {
+    if (err) {
       cb(err);
-    });
-  if (remove) {
-    cb(null, remove);
-  }
+    } else {
+      cb(null, result);
+    }
+  });
 };
 
 module.exports = {

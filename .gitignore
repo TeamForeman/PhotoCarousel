@@ -27,6 +27,8 @@ bundle.js
 # Key files
 *.pem
 login.sh
+newrelic.js
+
 
 ## ENVIRONMENTAL VARIABLES
 .env
