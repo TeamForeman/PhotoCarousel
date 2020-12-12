@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
   entry: "./client/index.jsx",
-  watch: true,
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "./client/dist")
@@ -23,7 +22,7 @@ module.exports = {
           loader: 'css-loader',
           options: {
             importLoaders: 1,
-            modules: true
+            modules: true,
           },
         },
       ],
